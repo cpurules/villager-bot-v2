@@ -16,6 +16,7 @@ using VillagerBot.Bot.Configuration;
 using VillagerBot.Bot.Panel;
 using VillagerBot.Bot.Relays;
 using VillagerBot.Bot.Requests;
+using VillagerBot.Bot.Staff;
 using VillagerBot.Core.Villagers;
 using VillagerBot.Data;
 
@@ -49,6 +50,13 @@ builder.Services
     .AddScoped<RequestFlow>()
     .AddScoped<RelayService>()
     .AddScoped<PanelService>()
+    .AddSingleton<VillagerGroups>()
+    .AddSingleton<StaffViews>()
+    .AddSingleton<ChannelCreationLock>()
+    .AddScoped<CategoryManager>()
+    .AddScoped<PullService>()
+    .AddScoped<PullReporter>()
+    .AddScoped<CloseService>()
     .AddHostedService<StartupCheck>();
 
 // Interactions need no intents; Guilds (non-privileged) keeps the guild, channel and role cache populated.
@@ -59,6 +67,8 @@ builder.Services
     .AddApplicationCommands(options => options.ResultHandler = ApplicationCommandResultHandler<ApplicationCommandContext>.Ephemeral)
     .AddComponentInteractions<ButtonInteraction, ButtonInteractionContext>(options =>
         options.ResultHandler = ComponentInteractionResultHandler<ButtonInteractionContext>.Ephemeral)
+    .AddComponentInteractions<StringMenuInteraction, StringMenuInteractionContext>(options =>
+        options.ResultHandler = ComponentInteractionResultHandler<StringMenuInteractionContext>.Ephemeral)
     .AddComponentInteractions<ModalInteraction, ModalInteractionContext>(options =>
         options.ResultHandler = ComponentInteractionResultHandler<ModalInteractionContext>.Ephemeral);
 

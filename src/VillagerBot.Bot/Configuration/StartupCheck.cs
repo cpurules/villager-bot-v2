@@ -1,4 +1,5 @@
 using System.Net;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,7 +12,7 @@ namespace VillagerBot.Bot.Configuration;
 /// (command-design §6.3). Discord reports a hidden channel only as "Missing Access", so without this a permission gap
 /// shows up as a confusing failure the first time someone uses a feature.
 /// </summary>
-public sealed class StartupCheck(RestClient rest, IOptions<VillagerBotOptions> options, ILogger<StartupCheck> logger)
+public sealed class StartupCheck(RestClient rest, IOptions<VillagerBotOptions> options, IServiceScopeFactory scopes, ILogger<StartupCheck> logger)
     : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -54,5 +55,18 @@ public sealed class StartupCheck(RestClient rest, IOptions<VillagerBotOptions> o
 
         if (problems == 0)
             logger.LogInformation("Startup check: all configured channels and categories are visible to the bot.");
+
+        // Remove overflow categories left empty (e.g. if the bot stopped mid-close).
+        try
+        {
+            await using var scope = scopes.CreateAsyncScope();
+            var removed = await scope.ServiceProvider.GetRequiredService<Staff.CategoryManager>().CleanUpOverflowAsync();
+            if (removed > 0)
+                logger.LogInformation("Startup check: removed {Count} empty overflow categories.", removed);
+        }
+        catch (Exception e)
+        {
+            logger.LogWarning(e, "Startup check: overflow category cleanup failed.");
+        }
     }
 }

@@ -197,7 +197,7 @@ The welcome text and DM text carry over from the old bot and will be configurabl
 
 | Outcome | Archive status | Member DM | Log | Channel |
 |---|---|---|---|---|
-| Completed | `COMPLETED` (records the closing hunter) | — | — | Deleted |
+| Completed | `COMPLETED` (credited to the **pulling** hunter, as in the legacy data, so stats stay consistent) | — | — | Deleted |
 | Timed out | `TIMEOUT` | "You were unavailable… you can request again; please keep your availability updated" | Text line in the timeout-log channel: "member — villager (closed by X)" (decided: yes) | Deleted |
 
 After deleting, if the channel's category is a **dynamic** overflow category that is now empty, delete it (§6).
@@ -303,6 +303,20 @@ Lookups are paced gently, since the active queue is small and REST rate limits a
 timeout transcript image, the `NH8` preset, the mod-team role tier, the template channel, **reservations**
 (`!reserve`/`!unreserve` and the reservations listing), the `/stats queue group:` option, and any main-category
 creation logic.
+
+## 9a. Implementation notes (staff side, 2026-09-29)
+
+- **Pull concurrency:** each request is claimed with a conditional `UPDATE … WHERE pulled_at IS NULL` before its channel is
+  created; if channel creation fails, the claim is released so the request returns to the queue. Bulk pulls stop at the
+  first channel failure rather than repeating it for every candidate.
+- **Departed members at pull time:** a pull checks membership first; members who left are archived as `Removed` and
+  reported to the hunter (this complements the periodic cleanup job).
+- **The queue list** shows members as mentions plus IDs (there's no member cache without a privileged intent). The
+  "Pull a request…" menu labels entries by number and villager.
+- **Request channels** copy the parent category's overwrites and add the requester, the hunter, and the bot itself (so
+  the bot can always post in and delete its own channels). Overflow categories copy the main category's overwrites.
+- **Configurable texts:** `VillagerBot:RequestChannel:Welcome`, `PulledDm`, and `TimeoutDm`, with `{member}`, `{hunter}`,
+  `{villager}`, `{channel}` placeholders. `VillagerBot:Pull:BulkExcludedGroup` (default `Sanrio`).
 
 ## 10. Open questions
 

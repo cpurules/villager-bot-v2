@@ -32,6 +32,8 @@ public sealed class VillagerBotOptions
 
     public PullOptions Pull { get; set; } = new();
 
+    public RequestChannelOptions RequestChannel { get; set; } = new();
+
     public sealed class RoleOptions
     {
         public ulong Villagers { get; set; }
@@ -82,5 +84,31 @@ public sealed class VillagerBotOptions
     public sealed class PullOptions
     {
         public int MaxCount { get; set; } = 10;
+
+        /// <summary>Villager group left out of bulk pulls unless one of its villagers is chosen explicitly (decided).</summary>
+        public string BulkExcludedGroup { get; set; } = "Sanrio";
+    }
+
+    /// <summary>
+    /// Texts for request channels. Placeholders: <c>{member}</c>, <c>{hunter}</c> (mentions), <c>{villager}</c>,
+    /// <c>{channel}</c> (channel mention).
+    /// </summary>
+    public sealed class RequestChannelOptions
+    {
+        public string Welcome { get; set; } =
+            "Welcome {member} to your mystery island where your villager **{villager}** awaits. {hunter} will contact you " +
+            "shortly and you will be allowed **30 minutes** to collect your villager. Please make sure you have a plot open " +
+            "and ready, thanks.\n\n" +
+            "*__REMINDER__ - if you are unresponsive (~10 minutes with no reply), your hunter may close your request!*\n" +
+            "*__REMINDER__ - do not DM your hunter! Please keep all communication within this channel.*";
+
+        public string PulledDm { get; set; } =
+            "A Haven Hunter is now ready to assist you with your request for **{villager}**. In the Villager Haven Discord, " +
+            "a channel is now open for your request: {channel}";
+
+        public string TimeoutDm { get; set; } =
+            "Unfortunately you were unavailable to pick up your villager, and your channel has been closed.\n" +
+            "You're able to submit a new request now. In the future, please mark yourself **not available** (with `/request`) " +
+            "whenever you can't pick up a villager.";
     }
 }

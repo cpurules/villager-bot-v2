@@ -12,8 +12,18 @@ namespace VillagerBot.Bot.Panel;
 /// </summary>
 [SlashCommand("admin", "Villager Bot admin tools", DefaultGuildPermissions = (Permissions)0, Contexts = [InteractionContextType.Guild])]
 [RequireAccess<ApplicationCommandContext>(AccessLevel.Admin)]
-public sealed class AdminModule(PanelService panel) : ApplicationCommandModule<ApplicationCommandContext>
+public sealed class AdminModule(PanelService panel, Staff.CategoryManager categories) : ApplicationCommandModule<ApplicationCommandContext>
 {
+    [SubSlashCommand("sync-categories", "Delete empty overflow request categories the bot created")]
+    public async Task SyncCategoriesAsync()
+    {
+        await RespondAsync(InteractionCallback.DeferredMessage(MessageFlags.Ephemeral));
+        var removed = await categories.CleanUpOverflowAsync();
+        await ModifyResponseAsync(m => m.Content = removed == 0
+            ? "No empty overflow categories to remove."
+            : $"Removed {removed} empty overflow {(removed == 1 ? "category" : "categories")}.");
+    }
+
     [SubSlashCommand("panel", "Post or refresh the villager request panel in the info channel")]
     public async Task PanelAsync()
     {

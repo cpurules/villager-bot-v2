@@ -21,7 +21,7 @@ not author) as a C# .NET 10 app on NetCord. The rewrite was triggered by the los
 |---|---|
 | `src/VillagerBot.Core` | Domain code with no Discord or DB dependencies: the villager catalogue (`Villagers/villagers.json`, embedded; generated from the legacy enum) |
 | `src/VillagerBot.Data` | EF Core entities, `VillagerBotDbContext` (Postgres, snake_case, `ulong`→`bigint`), migrations |
-| `src/VillagerBot.Bot` | NetCord Generic Host app, organized by feature: `Access/` (role tiers, `RequireAccess` precondition), `Requests/` (member flow: service, views, modules), `Relays/` (mod mail, starter kits), `Panel/` (info-channel panel, `/admin`), `Ui/` (shared view and markup helpers), `Configuration/` |
+| `src/VillagerBot.Bot` | NetCord Generic Host app, organized by feature: `Access/` (role tiers, `RequireAccess` precondition), `Requests/` (member flow: service, views, modules), `Relays/` (mod mail, starter kits), `Staff/` (queue list, pulls, request channels and overflow categories, closing), `Panel/` (info-channel panel, `/admin`), `Ui/` (shared view and markup helpers), `Configuration/` |
 | `src/VillagerBot.Migration` | One-off legacy ArangoDB import tool (dry run by default) |
 | `tests/VillagerBot.Tests` | xUnit v3 tests (Microsoft.Testing.Platform runner via `global.json`) |
 | `deploy/` | Docker Compose for the bot suite: shared Postgres (one DB per bot), per-bot services, `.env.example` |
