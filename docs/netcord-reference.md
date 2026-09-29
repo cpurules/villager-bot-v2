@@ -456,3 +456,27 @@ await app.RunAsync();
 - [ ] Embed limits: field value ≤ 1024 chars, description ≤ 4096, 25 fields, 6000 total. The old
       `!helpers` output could exceed a field.
 - [ ] Discord IDs are `ulong` in NetCord (the old bot used strings).
+
+---
+
+## 6. Verified in use (beta.27)
+
+Facts confirmed while implementing, beyond what the guides state:
+
+- `EmojiProperties` lives in the **`NetCord`** namespace, not `NetCord.Rest` (`EmojiProperties.Custom(ulong)` /
+  `EmojiProperties.Standard(string)`).
+- `NetCord.Format` exists, so don't name your own helper `Format` in files that import `NetCord`.
+- `ActionRowProperties` supports collection initializers even though the docs only list `AddComponents`.
+- `DefaultGuildPermissions = (Permissions)0` on `[SlashCommand]` is stored as an explicit value and sent as `"0"`
+  (admin-only by default), unlike leaving it unset. Confirmed in `ApplicationCommandAttribute.cs` source.
+- The non-generic `AddApplicationCommands()` registers `ApplicationCommandContext` **and**
+  `AutocompleteInteractionContext`, so `IAutocompleteProvider<AutocompleteInteractionContext>` needs no extra setup.
+- `ApplicationCommandResultHandler<T>.Ephemeral` / `ComponentInteractionResultHandler<T>.Ephemeral` set via the
+  options' `ResultHandler` make precondition failures private.
+- `ComponentInteractionModule<T>.RespondAsync(InteractionCallbackProperties, bool withResponse = false, ...)`;
+  button handlers answer with `InteractionCallback.ModifyMessage(...)` to update the message in place, or
+  `InteractionCallback.Modal(...)` to open a modal.
+- In a guild interaction, `Context.User` is a `GuildInteractionUser : GuildUser`, so `RoleIds` is available without a
+  REST call. In DMs it's a plain `User`: use `RestClient.GetGuildUserAsync`, which throws `RestException` with
+  `StatusCode == NotFound` for non-members.
+- Modal values: `Context.Components.OfType<Label>().Select(l => l.Component).OfType<TextInput>()`, then match `CustomId`.

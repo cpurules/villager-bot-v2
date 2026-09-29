@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/src/VillagerBot.Bot/VillagerBot.Bot.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "postgres (dev)",
+      "detail": "Start the shared Postgres container, published on 127.0.0.1:5432, and wait until it's healthy",
+      "type": "shell",
+      "command": "docker compose -f compose.yaml -f compose.dev.yaml up -d --wait postgres",
+      "options": { "cwd": "${workspaceFolder}/deploy" },
+      "problemMatcher": []
+    },
+    {
+      "label": "prepare bot",
+      "dependsOn": ["postgres (dev)", "build"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "test",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test"],
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

@@ -42,8 +42,10 @@ services:
       postgres:
         condition: service_healthy
     environment:
+      # Production = live server IDs (appsettings.Production.json); Test = test server IDs (appsettings.Test.json).
+      DOTNET_ENVIRONMENT: ${VILLAGER_BOT_ENVIRONMENT:-Production}
       Discord__Token: ${VILLAGER_BOT_DISCORD_TOKEN:?set VILLAGER_BOT_DISCORD_TOKEN in .env}
-      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD}
+      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD};GSS Encryption Mode=Disable
     networks: [bots]
 
   # One-off legacy import (docs/data-migration.md §5). Dry run:   docker compose run --rm villager-bot-migration
@@ -58,7 +60,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD}
+      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD};GSS Encryption Mode=Disable
     volumes:
       - ../data-export:/data-export:ro
     networks: [bots]

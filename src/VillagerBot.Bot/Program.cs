@@ -2,32 +2,65 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using NetCord;
 using NetCord.Gateway;
 using NetCord.Hosting.Gateway;
 using NetCord.Hosting.Services;
 using NetCord.Hosting.Services.ApplicationCommands;
-using VillagerBot.Bot;
+using NetCord.Hosting.Services.ComponentInteractions;
+using NetCord.Services.ApplicationCommands;
+using NetCord.Services.ComponentInteractions;
+using VillagerBot.Bot.Access;
+using VillagerBot.Bot.Configuration;
+using VillagerBot.Bot.Panel;
+using VillagerBot.Bot.Relays;
+using VillagerBot.Bot.Requests;
 using VillagerBot.Core.Villagers;
 using VillagerBot.Data;
 
-var builder = Host.CreateApplicationBuilder(args);
+// Read appsettings from the app's own folder, whatever directory it's launched from.
+var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
+{
+    Args = args,
+    ContentRootPath = AppContext.BaseDirectory,
+});
+
+// DOTNET_ENVIRONMENT picks the server: appsettings.Production.json (live) or appsettings.Test.json (test server).
+// User secrets hold the token and connection string for local runs in any environment.
+builder.Configuration.AddUserSecrets<Program>(optional: true);
 
 var connectionString = builder.Configuration.GetConnectionString("VillagerBot")
     ?? throw new InvalidOperationException("Connection string 'VillagerBot' is not configured.");
 
 builder.Services
+    .AddSingleton<IValidateOptions<VillagerBotOptions>, VillagerBotOptionsValidator>()
     .AddOptions<VillagerBotOptions>()
-    .Bind(builder.Configuration.GetSection(VillagerBotOptions.Section));
+    .Bind(builder.Configuration.GetSection(VillagerBotOptions.Section))
+    .ValidateOnStart();
 
 builder.Services
     .AddDbContext<VillagerBotDbContext>(options => VillagerBotDbContext.Configure(options, connectionString))
-    .AddSingleton(VillagerCatalog.LoadEmbedded());
+    .AddSingleton(TimeProvider.System)
+    .AddSingleton(VillagerCatalog.LoadEmbedded())
+    .AddSingleton<MemberAccess>()
+    .AddSingleton<RequestViews>()
+    .AddScoped<RequestService>()
+    .AddScoped<RequestFlow>()
+    .AddScoped<RelayService>()
+    .AddScoped<PanelService>()
+    .AddHostedService<StartupCheck>();
 
 // Interactions need no intents; Guilds (non-privileged) keeps the guild, channel and role cache populated.
 // Never add MessageContent or other privileged intents (see CLAUDE.md).
+// Failed preconditions and errors are reported privately to the user who clicked or typed.
 builder.Services
     .AddDiscordGateway(options => options.Intents = GatewayIntents.Guilds)
-    .AddApplicationCommands();
+    .AddApplicationCommands(options => options.ResultHandler = ApplicationCommandResultHandler<ApplicationCommandContext>.Ephemeral)
+    .AddComponentInteractions<ButtonInteraction, ButtonInteractionContext>(options =>
+        options.ResultHandler = ComponentInteractionResultHandler<ButtonInteractionContext>.Ephemeral)
+    .AddComponentInteractions<ModalInteraction, ModalInteractionContext>(options =>
+        options.ResultHandler = ComponentInteractionResultHandler<ModalInteractionContext>.Ephemeral);
 
 var host = builder.Build();
 

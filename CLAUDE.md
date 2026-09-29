@@ -21,7 +21,7 @@ not author) as a C# .NET 10 app on NetCord. The rewrite was triggered by the los
 |---|---|
 | `src/VillagerBot.Core` | Domain code with no Discord or DB dependencies: the villager catalogue (`Villagers/villagers.json`, embedded; generated from the legacy enum) |
 | `src/VillagerBot.Data` | EF Core entities, `VillagerBotDbContext` (Postgres, snake_case, `ulong`→`bigint`), migrations |
-| `src/VillagerBot.Bot` | NetCord Generic Host app: config (`VillagerBotOptions`, `appsettings.json`), commands, jobs |
+| `src/VillagerBot.Bot` | NetCord Generic Host app, organized by feature: `Access/` (role tiers, `RequireAccess` precondition), `Requests/` (member flow: service, views, modules), `Relays/` (mod mail, starter kits), `Panel/` (info-channel panel, `/admin`), `Ui/` (shared view and markup helpers), `Configuration/` |
 | `src/VillagerBot.Migration` | One-off legacy ArangoDB import tool (dry run by default) |
 | `tests/VillagerBot.Tests` | xUnit v3 tests (Microsoft.Testing.Platform runner via `global.json`) |
 | `deploy/` | Docker Compose for the bot suite: shared Postgres (one DB per bot), per-bot services, `.env.example` |
@@ -39,8 +39,20 @@ cd deploy && docker compose -f compose.yaml -f compose.dev.yaml up -d postgres  
 cd deploy && docker compose up -d --build                                        # full stack
 ```
 
-Local bot secrets: `dotnet user-secrets set "Discord:Token" ...` and `"ConnectionStrings:VillagerBot" ...` in
-`src/VillagerBot.Bot` (only loaded when `DOTNET_ENVIRONMENT=Development`).
+## Environments (test vs live server)
+
+All Discord IDs are configuration, never code. `DOTNET_ENVIRONMENT` picks the server:
+
+| Environment | IDs from | Used by |
+|---|---|---|
+| `Production` | `src/VillagerBot.Bot/appsettings.Production.json` (Villager Haven) | Docker default (`VILLAGER_BOT_ENVIRONMENT` in `deploy/.env`) |
+| `Test` | `src/VillagerBot.Bot/appsettings.Test.json` (test guild) | IDE launch profile "Test server" |
+
+Startup fails with a list of any missing IDs (`VillagerBotOptionsValidator`); emoji IDs are optional and fall back to
+standard emoji. Any value can be overridden by environment variable (`VillagerBot__Channels__Info=...`).
+Secrets for local runs: `dotnet user-secrets set "Discord:Token" ...` and `"ConnectionStrings:VillagerBot" ...` in
+`src/VillagerBot.Bot` (loaded in every environment). Note `dotnet run` applies the first launch profile unless given
+`--no-launch-profile`.
 
 ## Rules
 

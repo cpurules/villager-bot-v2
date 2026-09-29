@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Bot (Test server)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "prepare bot",
+      "program": "${workspaceFolder}/src/VillagerBot.Bot/bin/Debug/net10.0/VillagerBot.Bot.dll",
+      "cwd": "${workspaceFolder}/src/VillagerBot.Bot",
+      "env": { "DOTNET_ENVIRONMENT": "Test" },
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Bot (Live server)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "prepare bot",
+      "program": "${workspaceFolder}/src/VillagerBot.Bot/bin/Debug/net10.0/VillagerBot.Bot.dll",
+      "cwd": "${workspaceFolder}/src/VillagerBot.Bot",
+      "env": { "DOTNET_ENVIRONMENT": "Production" },
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
