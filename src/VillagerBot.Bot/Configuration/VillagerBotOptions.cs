@@ -78,6 +78,12 @@ public sealed class VillagerBotOptions
 
     public sealed class JobOptions
     {
+        /// <summary>
+        /// Off on the test server: its data may come from the live server, whose members aren't in the test guild and
+        /// would all look like they had left.
+        /// </summary>
+        public bool DepartedCleanupEnabled { get; set; } = true;
+
         public int DepartedCleanupHours { get; set; } = 6;
     }
 

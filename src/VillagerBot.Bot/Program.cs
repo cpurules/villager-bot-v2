@@ -57,7 +57,9 @@ builder.Services
     .AddScoped<PullService>()
     .AddScoped<PullReporter>()
     .AddScoped<CloseService>()
-    .AddHostedService<StartupCheck>();
+    .AddScoped<LookupService>()
+    .AddHostedService<StartupCheck>()
+    .AddHostedService<DepartedMemberCleanup>();
 
 // Interactions need no intents; Guilds (non-privileged) keeps the guild, channel and role cache populated.
 // Never add MessageContent or other privileged intents (see CLAUDE.md).

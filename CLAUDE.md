@@ -14,6 +14,7 @@ not author) as a C# .NET 10 app on NetCord. The rewrite was triggered by the los
   This is the spec to implement against.
 - [docs/data-migration.md](docs/data-migration.md): Postgres/EF Core schema, legacy field mapping, export procedure, and cutover.
   Legacy exports live in `data-export/` (git-ignored; contains member IDs).
+- [docs/deployment.md](docs/deployment.md): Oracle VM setup, backups (`deploy/backup.sh`), cutover runbook, day-to-day ops.
 
 ## Layout
 
@@ -48,7 +49,8 @@ All Discord IDs are configuration, never code. `DOTNET_ENVIRONMENT` picks the se
 | `Production` | `src/VillagerBot.Bot/appsettings.Production.json` (Villager Haven) | Docker default (`VILLAGER_BOT_ENVIRONMENT` in `deploy/.env`) |
 | `Test` | `src/VillagerBot.Bot/appsettings.Test.json` (test guild) | IDE launch profile "Test server" |
 
-Startup fails with a list of any missing IDs (`VillagerBotOptionsValidator`); emoji IDs are optional and fall back to
+The Test environment disables the departed-member cleanup job (the local DB holds live-server members who aren't in
+the test guild). Startup fails with a list of any missing IDs (`VillagerBotOptionsValidator`); emoji IDs are optional and fall back to
 standard emoji. Any value can be overridden by environment variable (`VillagerBot__Channels__Info=...`).
 Secrets for local runs: `dotnet user-secrets set "Discord:Token" ...` and `"ConnectionStrings:VillagerBot" ...` in
 `src/VillagerBot.Bot` (loaded in every environment). Note `dotnet run` applies the first launch profile unless given

@@ -50,6 +50,20 @@ public sealed class MemberAccess(RestClient rest, IOptions<VillagerBotOptions> o
         }
     }
 
+    /// <summary>Whether the user is still in the configured server (REST lookup).</summary>
+    public async Task<bool> IsMemberAsync(ulong userId)
+    {
+        try
+        {
+            await rest.GetGuildUserAsync(_options.GuildId, userId);
+            return true;
+        }
+        catch (RestException e) when (e.StatusCode == HttpStatusCode.NotFound)
+        {
+            return false;
+        }
+    }
+
     public async Task<bool> HasAccessAsync(User user, ulong? interactionGuildId, AccessLevel level)
         => await GetRoleIdsAsync(user, interactionGuildId) is { } roles && Satisfies(roles, level);
 

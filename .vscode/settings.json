@@ -1,0 +1,6 @@
+{
+  // .NET configuration files allow comments.
+  "files.associations": {
+    "appsettings*.json": "jsonc"
+  }
+}

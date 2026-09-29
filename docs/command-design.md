@@ -315,6 +315,12 @@ creation logic.
   "Pull a request…" menu labels entries by number and villager.
 - **Request channels** copy the parent category's overwrites and add the requester, the hunter, and the bot itself (so
   the bot can always post in and delete its own channels). Overflow categories copy the main category's overwrites.
+- **Departed-member cleanup** can be switched off with `VillagerBot:Jobs:DepartedCleanupEnabled`; it's **off in the Test
+  environment**, because a local database loaded with live-server data would otherwise have every member archived.
+  It checks each open request with a paced REST member lookup (about 2 minutes for 500 requests).
+- **Stats:** `/stats top-requesters` checks membership for the top candidates until it has ten current members;
+  `/stats hunters` lists every hunter with completed requests in the period (departed hunters included), counting in the
+  `StatsTimeZone`.
 - **Configurable texts:** `VillagerBot:RequestChannel:Welcome`, `PulledDm`, and `TimeoutDm`, with `{member}`, `{hunter}`,
   `{villager}`, `{channel}` placeholders. `VillagerBot:Pull:BulkExcludedGroup` (default `Sanrio`).
 

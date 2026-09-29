@@ -1,9 +1,9 @@
-using System.Net;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NetCord;
 using NetCord.Rest;
+using VillagerBot.Bot.Access;
 using VillagerBot.Bot.Configuration;
 using VillagerBot.Core.Villagers;
 using VillagerBot.Data;
@@ -32,6 +32,7 @@ public sealed class PullService(
     VillagerBotDbContext db,
     RestClient rest,
     CategoryManager categories,
+    MemberAccess access,
     VillagerCatalog catalog,
     IOptions<VillagerBotOptions> options,
     TimeProvider time,
@@ -85,7 +86,7 @@ public sealed class PullService(
         if (request.PulledAt is not null)
             return new PullResult(userId, PullStatus.AlreadyPulled, request.VillagerKey, request.ChannelId, OtherHunterId: request.HunterId);
 
-        if (!await IsMemberAsync(userId))
+        if (!await access.IsMemberAsync(userId))
         {
             await db.ArchiveAsync(request, ArchiveOutcome.Removed, time.GetUtcNow());
             return new PullResult(userId, PullStatus.MemberLeft, request.VillagerKey);
@@ -141,19 +142,6 @@ public sealed class PullService(
 
         var dmFailed = !await TryDirectMessageAsync(userId, Fill(_options.RequestChannel.PulledDm, userId, hunterId, villagerName, channelId));
         return new PullResult(userId, PullStatus.Pulled, request.VillagerKey, channelId, dmFailed, Error: warning);
-    }
-
-    private async Task<bool> IsMemberAsync(ulong userId)
-    {
-        try
-        {
-            await rest.GetGuildUserAsync(_options.GuildId, userId);
-            return true;
-        }
-        catch (RestException e) when (e.StatusCode == HttpStatusCode.NotFound)
-        {
-            return false;
-        }
     }
 
     /// <summary>Returns false when the member doesn't accept DMs from the bot (B6: the caller tells the hunter).</summary>
