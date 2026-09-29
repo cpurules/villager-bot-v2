@@ -1,0 +1,63 @@
+name: Deploy
+
+# Manual only. Copies the tested commit to the VM over SSH and builds it there (natively on the ARM VM, so no registry
+# or cross-compiling). Whether the bot is started is a choice; the default leaves it alone. See docs/deployment.md.
+on:
+  workflow_dispatch:
+    inputs:
+      bot:
+        description: "After building, what should happen to the bot?"
+        type: choice
+        default: leave-as-is
+        options:
+          - leave-as-is
+          - start-or-restart
+          - stop
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.VM_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VM_SSH_KNOWN_HOSTS }}
+          VM_HOST: ${{ vars.VM_HOST }}
+          VM_USER: ${{ vars.VM_USER }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf 'Host vm\n  HostName %s\n  User %s\n  IdentityFile ~/.ssh/deploy_key\n  IdentitiesOnly yes\n' \
+            "$VM_HOST" "$VM_USER" > ~/.ssh/config
+
+      - name: Copy code to the VM
+        # --delete keeps the VM in sync, but never touches secrets, backups or legacy exports that live only there.
+        run: |
+          ssh vm 'mkdir -p vh-bots/villager-bot'
+          rsync -az --delete \
+            --exclude '.git/' \
+            --exclude 'bin/' --exclude 'obj/' --exclude 'TestResults/' \
+            --exclude 'deploy/.env' --exclude 'deploy/backups/' \
+            --exclude 'data-export/' \
+            ./ vm:vh-bots/villager-bot/
+
+      - name: Build and apply bot action
+        env:
+          BOT_ACTION: ${{ inputs.bot }}
+        run: ssh vm "bash vh-bots/villager-bot/deploy/remote-deploy.sh $BOT_ACTION"

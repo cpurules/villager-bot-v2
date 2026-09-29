@@ -1,6 +1,35 @@
 # Hosting Options for the Villager Bot Rewrite
 
-Researched 2026-09-28. Free tiers change often (several changed this year), so re-check pricing pages before committing.
+Researched 2026-09-28; decision revised 2026-09-29. Prices and free tiers change often (several changed this year), so
+re-check pricing pages before committing.
+
+## Decision (2026-09-29): OVHcloud VPS-1
+
+**Chosen: OVHcloud VPS-1** in a US datacenter (Vint Hill VA or Hillsboro OR): 2 vCPU, **4 GB RAM**, 40 GB NVMe, public
+IPv4 and daily automated backup included, about **$4.54/month** on a 12-month commitment or about **$6.46** month to
+month. Everything runs as in the rest of this doc's architecture A: a gateway bot in Docker Compose with Postgres on
+the same box. Setup: [deployment.md](deployment.md).
+
+**Why not Oracle Always Free** (the original first choice, below): the new account got stuck in "provisioning" (a
+widely reported issue that can take weeks to clear), which blocks upgrading to Pay As You Go, and every attempt to
+create the Ampere instance failed with "Out of host capacity".
+
+**Budget and sizing:** up to $10/month. Postgres uses about 100–150 MB and each .NET bot about 100–150 MB, so the
+planned suite of 4–5 bots needs about 1 GB. 1 GB plans would be tight; 2 GB or more is comfortable. The Docker build
+works on ARM and x86 alike.
+
+| Option (checked 2026-09-29) | Specs | Price/month | Verdict |
+|---|---|---|---|
+| **OVHcloud VPS-1** | 2 vCPU, 4 GB, 40 GB, IPv4 + daily backup included | ~$4.54 (12-mo) / ~$6.46 (monthly) | ✅ Chosen: most headroom by far within budget |
+| Linode (Akamai) Nanode | 1 vCPU, 1 GB, 25 GB | $5 (2 GB: $12; 4 GB: $24) | Viable for this bot alone; tight for the suite. Nicest UX and a $100 trial credit. |
+| GCP e2-micro (free tier) | 2 shared vCPU, 1 GB | ~$3.65 (IPv4 only) | Least migration effort; too small for the suite |
+| AWS Lightsail | 2 vCPU, 1 GB / 2 GB | $7 / $12 | 1 GB tight; 2 GB over budget |
+| DigitalOcean / Vultr | 1 GB | $5–6 (2 GB: $12) | Same RAM problem |
+| Hetzner CX23 / CAX11 | 2 vCPU, 4 GB | ~€6 incl. IPv4 | Would suit, but every cost-optimized plan was sold out, after two price rises in 2026 |
+| Railway (managed) | usage-based | ~$5–10 | No Docker Compose; cost grows with each bot |
+
+The rest of this document is the original free-tier analysis (2026-09-28). It's kept for its reasoning about
+architectures, serverless cold starts and databases, but its Oracle recommendation is **superseded**.
 
 ## Requirements that drive the choice
 
@@ -98,8 +127,8 @@ the `Program.cs` host setup and the context types (`ApplicationCommandContext` v
 ## Database options (for the Arango migration)
 
 > **Decided 2026-09-28: PostgreSQL**, one server shared by the whole bot suite (3–4 more bots are planned), one
-> database per bot. This favors the **Oracle A1** recommendation: 1 GB e2-micro can't comfortably host Postgres plus
-> several .NET bots, while a 2 OCPU / 12 GB A1 can. See data-migration.md §1.
+> database per bot, running on the same VPS as the bots (now an OVHcloud VPS-1 with 4 GB; see "Decision" above). A 1 GB
+> machine can't comfortably host Postgres plus several .NET bots. See data-migration.md §1.
 
 
 | Option | Cost | Fit |
@@ -122,6 +151,16 @@ Also carry over the `lastpos.json` value.
   `appsettings.json` committed to git.
 
 ## Sources
+
+2026-09-29 decision:
+- OVHcloud US VPS range: <https://us.ovhcloud.com/vps/>
+- OVH VPS pricing review (monthly prices, 2026 increase): <https://learnwithhasan.com/vps-providers/ovh-vps/>
+- Akamai (Linode) pricing, North America: <https://www.akamai.com/cloud/pricing/north-america>
+- Hetzner cost-optimized plans (sold out): <https://www.hetzner.com/cloud/cost-optimized/>
+- Hetzner price adjustment, June 2026: <https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/>
+- AWS Lightsail pricing: <https://aws.amazon.com/lightsail/pricing/>
+
+Original analysis (2026-09-28):
 
 - Google Cloud free tier features: <https://docs.cloud.google.com/free/docs/free-cloud-features>
 - Google Cloud network pricing (external IP free tier = 1 h/month): <https://cloud.google.com/vpc/network-pricing>

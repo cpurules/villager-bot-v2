@@ -3,7 +3,7 @@
 #
 #   deploy/backup.sh                 # dump each database in BOT_DATABASES to deploy/backups/
 #
-# Keeps the last $KEEP_DAYS days locally. If RCLONE_REMOTE is set (e.g. "oci:vh-bots-backups"), each new dump is also
+# Keeps the last $KEEP_DAYS days locally. If RCLONE_REMOTE is set (e.g. "b2:vh-bots-backups"), each new dump is also
 # copied off the VM with rclone, and remote dumps older than $KEEP_DAYS days are pruned.
 set -euo pipefail
 
