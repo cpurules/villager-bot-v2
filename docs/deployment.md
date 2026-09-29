@@ -4,6 +4,9 @@ How to stand up the bot suite on an OVHcloud VPS and switch Villager Haven from 
 new one. Background and the hosting decision: [hosting-options.md](hosting-options.md). Discord-side setup:
 [command-design.md §6.3](command-design.md#63-bot-setup-brand-new-application).
 
+Placeholders like `<vps-ipv4>` mean "replace this, **including the angle brackets**": `<vps-ipv4>` becomes
+`40.160.36.231`, not `<40.160.36.231>`.
+
 Each phase ends with a **✅ Check** so you know it worked before moving on. Phases 1–5 can be done any time before cutover.
 Phase 7 is the switchover itself (about 30–45 minutes).
 

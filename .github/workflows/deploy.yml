@@ -40,11 +40,27 @@ jobs:
           VM_USER: ${{ vars.VM_USER }}
         run: |
           install -m 700 -d ~/.ssh
-          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          # tr: values pasted from Windows can carry carriage returns, which break both files.
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf '%s\n' "$KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
           printf 'Host vm\n  HostName %s\n  User %s\n  IdentityFile ~/.ssh/deploy_key\n  IdentitiesOnly yes\n' \
             "$VM_HOST" "$VM_USER" > ~/.ssh/config
+
+          # Compare the pinned host key with what the server presents (host keys are public, so this is safe to log).
+          pinned=$(ssh-keygen -lf ~/.ssh/known_hosts 2>/dev/null) \
+            || { echo "::error::VM_SSH_KNOWN_HOSTS isn't a valid host key line (expected '<ip> ssh-ed25519 AAAA...')"; exit 1; }
+          offered=$(ssh-keyscan -t ed25519 "$VM_HOST" 2>/dev/null | ssh-keygen -lf - 2>/dev/null || true)
+          echo "Pinned:  $pinned"
+          echo "Offered: $offered"
+          if [[ "$(awk '{print $2}' <<< "$pinned")" != "$(awk '{print $2}' <<< "$offered")" ]]; then
+            echo "::error::The pinned host key doesn't match the server's. Re-check VM_SSH_KNOWN_HOSTS (docs/deployment.md §4a)."
+            exit 1
+          fi
+          if [[ "$(awk '{print $1}' ~/.ssh/known_hosts)" != "$VM_HOST" ]]; then
+            echo "::error::VM_SSH_KNOWN_HOSTS starts with '$(awk '{print $1}' ~/.ssh/known_hosts)' but VM_HOST is '$VM_HOST'; they must match."
+            exit 1
+          fi
 
       - name: Copy code to the VM
         # --delete keeps the VM in sync, but never touches secrets, backups or legacy exports that live only there.
