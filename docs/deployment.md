@@ -186,8 +186,12 @@ docker compose build                       # builds the bot for ARM on the VPS (
 
 **Don't start the bot yet.** Its database is empty until the cutover import (Phase 7).
 
-✅ **Check:** `docker compose ps` shows `postgres` as **healthy**, and
-`docker compose exec postgres psql -U postgres -c '\l'` lists `villager_bot`.
+✅ **Check:** `docker compose ps` shows `postgres` as **healthy**, and this lists a database named `villager_bot`
+(owner `villager_bot`):
+
+```bash
+docker compose exec postgres psql -U postgres -c '\l'
+```
 
 ## Phase 6: Nightly backups
 
