@@ -1,6 +1,6 @@
 # Deployment & Cutover Runbook
 
-How to stand up the bot suite on an Oracle Cloud Always Free VM and switch Villager Haven from the old Java bot to the
+How to stand up the bot suite on an OVHcloud VPS and switch Villager Haven from the old Java bot to the
 new one. Background and the hosting decision: [hosting-options.md](hosting-options.md). Discord-side setup:
 [command-design.md §6.3](command-design.md#63-bot-setup-brand-new-application).
 
@@ -9,61 +9,137 @@ Phase 7 is the switchover itself (about 30–45 minutes).
 
 ---
 
-## Phase 1: Oracle Cloud account
+## Phase 1: Order the VPS
 
-1. Sign up at <https://signup.cloud.oracle.com>. Pick a **home region** close to you (US: Ashburn, Phoenix, San Jose,
-   Chicago). The home region can't be changed later, and Always Free resources only live there.
-2. **Upgrade to Pay As You Go** (Billing → Upgrade and Manage Payment). Always Free resources stay free. This is the
-   commonly recommended guard against idle reclamation, and it tends to make Ampere capacity easier to get
-   (hosting-options.md, "Oracle idle reclamation").
-3. **Set a budget alert** so any accidental paid usage is noticed: Billing → Budgets → Create Budget, amount **$1**,
-   alert at 100% of actual spend, sent to your email.
+Decided 2026-09-29: **OVHcloud VPS-1** (2 vCPU, 4 GB RAM, 40 GB NVPSe, public IPv4, daily automated backup included;
+about $4.54/month with a 12-month commitment or about $6.46 month to month). Why: hosting-options.md, "Decision".
 
-✅ **Check:** the Billing page shows Pay As You Go, and the budget exists.
+1. Create an account at <https://us.ovhcloud.com> (the US site bills in USD). New accounts are sometimes held for a
+   manual identity check. That usually takes under a day; answer any email from OVH promptly.
+2. Order **VPS → VPS-1** and configure:
 
-## Phase 2: Create the VM
+   | Setting | Value |
+   |---|---|
+   | Location | A **US** datacenter: **US-East (Vint Hill, VA)** or **US-West (Hillsboro, OR)**. The default may be in Europe, so check it. |
+   | Image / OS | **Ubuntu 24.04** (plain OS, no preinstalled apps) |
+   | SSH key | If the order form offers it, paste your public key (see below). If not, OVH emails login details instead; Phase 3 switches to the key. |
+   | Commitment | 12 months is cheapest; month to month costs a bit more but can be cancelled any time |
+   | Options | None needed. Automated backup is already included in this range. |
 
-Compute → Instances → **Create instance**:
+   Your public key, created 2026-09-29 for this server, is `C:\Users\<you>\.ssh\id_ed25519_vhbots.pub`.
+   Print it with `type $env:USERPROFILE\.ssh\id_ed25519_vhbots.pub` in PowerShell.
+3. When the VPS is delivered (minutes to hours), OVH emails its **IPv4 address** and the login user (normally
+   `ubuntu`). Both are also shown in the OVH Control Panel under **Bare Metal Cloud → Virtual private servers**.
 
-| Setting | Value |
-|---|---|
-| Name | `vh-bots` |
-| Image | **Canonical Ubuntu 24.04** (the aarch64 build is picked automatically for Ampere) |
-| Shape | Change shape → Ampere → **VM.Standard.A1.Flex**, **2 OCPU, 12 GB** (the whole Always Free allowance; 1 OCPU / 6 GB also works) |
-| Networking | Create a new VCN with a public subnet; **assign a public IPv4 address** (needed for SSH) |
-| SSH keys | Upload your public key, or let Oracle generate a pair and **download the private key now** (it isn't shown again) |
-| Boot volume | Default (~47 GB) is plenty. Always Free covers 200 GB in total. |
+✅ **Check:** the Control Panel shows the VPS as **running**, with an IPv4 address.
 
-- **"Out of host capacity"** is common for Ampere in busy regions. Retry later, try another availability domain in the
-  same region, or reduce to 1 OCPU / 6 GB. Pay As You Go accounts hit this less often.
-- **No inbound ports are needed.** The bots only make outgoing connections to Discord, and Postgres isn't reachable
-  from outside Docker. Leave the default security list (SSH, port 22, only). Don't open anything else.
+## Phase 2: First login and SSH setup
 
-✅ **Check:** from your PC, `ssh ubuntu@<public-ip>` (add `-i path\to\key` if Oracle generated it) gets you a prompt.
+Add a shortcut to `~/.ssh/config` on your PC (`C:\Users\<you>\.ssh\config`), so plain `ssh vh-bots` works:
 
-## Phase 3: Prepare the VM
+```
+Host vh-bots
+    HostName <vps-ipv4>
+    User ubuntu
+    IdentityFile ~/.ssh/id_ed25519_vhbots
+    IdentitiesOnly yes
+```
 
-On the VM:
+- **If you added the key when ordering:** `ssh vh-bots` logs straight in.
+- **If you got a password instead:** log in once with it (`ssh ubuntu@<vps-ipv4>`; set a new password if asked), then
+  install your key from PowerShell on your PC:
+
+  ```powershell
+  type $env:USERPROFILE\.ssh\id_ed25519_vhbots.pub | ssh ubuntu@<vps-ipv4> "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+  ```
+
+**Then turn off password logins.** Unlike a cloud VPS with a firewall in front, a VPS is reachable on every port, and
+bots constantly try SSH passwords. On the VPS:
+
+```bash
+echo -e "PasswordAuthentication no\nKbdInteractiveAuthentication no\nPermitRootLogin no" | sudo tee /etc/ssh/sshd_config.d/00-hardening.conf
+sudo sshd -t && sudo systemctl reload ssh
+```
+
+Keep this session open, and test `ssh vh-bots` from a **new** terminal before closing it, so a mistake can't lock you out.
+(If you ever are locked out: Control Panel → your VPS → **KVPS** console.)
+
+✅ **Check:** `ssh vh-bots` works with the key, and `ssh -o PubkeyAuthentication=no ubuntu@<vps-ipv4>` is refused
+with "Permission denied (publickey)".
+
+## Phase 3: Prepare the VPS
+
+On the VPS:
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
-sudo apt install -y git unattended-upgrades rclone
+sudo apt install -y unattended-upgrades rclone
 sudo dpkg-reconfigure -plow unattended-upgrades        # answer Yes: automatic security updates
 
-# Docker Engine + Compose plugin (official script; supports Ubuntu on arm64)
+# Firewall: only SSH in. The bots only make outgoing connections, and Postgres isn't published outside Docker.
+sudo ufw allow OpenSSH
+sudo ufw --force enable
+
+# Docker Engine + Compose plugin (official script)
 curl -fsSL https://get.docker.com | sudo sh
 sudo usermod -aG docker ubuntu
 sudo timedatectl set-timezone America/Chicago           # optional: log timestamps in your time zone
 exit                                                    # log out and back in so the docker group applies
 ```
 
-✅ **Check:** after logging back in, `docker run --rm hello-world` prints "Hello from Docker!" and
-`docker compose version` prints a version.
+Docker adds its own firewall rules for *published* ports, which bypass ufw. That's fine here, because the production
+compose file publishes none. Never add a `ports:` entry for Postgres in `compose.yaml`; that's what `compose.dev.yaml`
+is for, on your PC.
 
-## Phase 4: Get the code onto the VM
+✅ **Check:** after logging back in, `docker run --rm hello-world` prints "Hello from Docker!", `docker compose version`
+prints a version, and `sudo ufw status` shows only OpenSSH allowed.
+
+## Phase 4: Get the code onto the VPS
+
+**Recommended: GitHub Actions** (§4a below). The Deploy workflow copies the tested code to the VPS and builds it, so the
+VPS needs no git access. Otherwise use one of the manual options in §4b. Either way, finish with the secrets file (§4c).
+
+### 4a. GitHub Actions setup (one time)
+
+Workflows: `.github/workflows/ci.yml` (build and test on every push and pull request) and `.github/workflows/deploy.yml`
+(manual deploy). The deploy connects to the VPS over SSH with its own key, so create one just for it. In PowerShell:
+
+```powershell
+ssh-keygen -t ed25519 -f vh-deploy -C "github-actions-deploy"   # press Enter twice: no passphrase
+type vh-deploy.pub | ssh ubuntu@<vps-ipv4> "cat >> ~/.ssh/authorized_keys"
+ssh-keyscan -t ed25519 <vps-ipv4>        # copy the output line for VM_SSH_KNOWN_HOSTS
+```
+
+In the GitHub repo: **Settings → Environments → New environment** `production` (optionally add yourself as a required
+reviewer, so every deploy needs a click to approve). Then, in that environment:
+
+| Kind | Name | Value |
+|---|---|---|
+| Secret | `VM_SSH_KEY` | Contents of the private key file `vh-deploy` (the whole file, including the BEGIN/END lines) |
+| Secret | `VM_SSH_KNOWN_HOSTS` | The `ssh-keyscan` output line. This pins the VPS's identity, so the workflow can't be tricked into deploying elsewhere. |
+| Variable | `VM_HOST` | The VPS's public IP |
+| Variable | `VM_USER` | `ubuntu` |
+
+Then delete the local `vh-deploy` files (the key only needs to live in GitHub and in the VPS's `authorized_keys`).
+
+**Deploying:** Actions → **Deploy** → Run workflow, and choose what happens to the bot after the build:
+
+| `bot` input | Effect |
+|---|---|
+| `leave-as-is` (default) | Copies code, starts Postgres if needed, builds the images. **The bot isn't started, stopped or restarted.** If it's already running, it keeps running the previous build. |
+| `start-or-restart` | Same, then starts the bot on the new build (or restarts it), checks it's still up 20 seconds later, and shows its startup log. Fails the run if the bot exited. |
+| `stop` | Same, then stops the bot. |
+
+> ⚠️ **Until cutover (Phase 7), only ever choose `leave-as-is`.** Before the import, the live database is empty. A
+> started bot would register its commands in Villager Haven and accept requests into an empty queue, alongside the old bot.
+
+The deploy job only runs after the CI tests pass. The same script can be run by hand on the VPS:
+`deploy/remote-deploy.sh leave-as-is|start-or-restart|stop`.
+
+### 4b. Manual alternatives
 
 **If the repo has a remote** (GitHub/GitLab), clone it. For a private repo, add a read-only **deploy key**: run
-`ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""` on the VM, add `~/.ssh/deploy_key.pub` to the repo's deploy keys,
+`ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""` on the VPS, add `~/.ssh/deploy_key.pub` to the repo's deploy keys,
 then clone with that key:
 
 ```bash
@@ -76,11 +152,13 @@ cd villager-bot && git config core.sshCommand "ssh -i ~/.ssh/deploy_key"
 
 ```powershell
 tar --exclude=bin --exclude=obj --exclude=data-export --exclude=.vs --exclude=deploy/.env -czf villager-bot.tgz villager-bot
-scp villager-bot.tgz ubuntu@<public-ip>:~/
-# then on the VM: mkdir -p ~/vh-bots && tar xzf ~/villager-bot.tgz -C ~/vh-bots
+scp villager-bot.tgz ubuntu@<vps-ipv4>:~/
+# then on the VPS: mkdir -p ~/vh-bots && tar xzf ~/villager-bot.tgz -C ~/vh-bots
 ```
 
-Then create the secrets file. **Use the new live bot's token**, not the test bot's, and fresh passwords (letters and
+### 4c. Secrets file (on the VPS, either way)
+
+Create the secrets file. **Use the new live bot's token**, not the test bot's, and fresh passwords (letters and
 digits only):
 
 ```bash
@@ -89,16 +167,18 @@ cp .env.example .env && chmod 600 .env
 nano .env        # POSTGRES_PASSWORD, VILLAGER_BOT_DB_PASSWORD, VILLAGER_BOT_DISCORD_TOKEN, VILLAGER_BOT_ENVIRONMENT=Production
 ```
 
-Generate a password on the VM with `openssl rand -hex 24`.
+Generate a password on the VPS with `openssl rand -hex 24`.
 
 ✅ **Check:** `ls -l .env` shows `-rw-------`, and `grep -c '=$' .env` prints `0` (nothing left blank).
 
 ## Phase 5: Start Postgres and build the images
 
+**With GitHub Actions:** run **Deploy** with `bot: leave-as-is`. That does all of this phase. Otherwise, by hand:
+
 ```bash
 cd ~/vh-bots/villager-bot/deploy
 docker compose up -d --wait postgres       # first start creates the villager_bot database and login
-docker compose build                       # builds the bot for ARM on the VM (a few minutes the first time)
+docker compose build                       # builds the bot for ARM on the VPS (a few minutes the first time)
 ```
 
 **Don't start the bot yet.** Its database is empty until the cutover import (Phase 7).
@@ -108,21 +188,24 @@ docker compose build                       # builds the bot for ARM on the VM (a
 
 ## Phase 6: Nightly backups
 
-`deploy/backup.sh` dumps every bot database (compressed, restorable with `pg_restore`) into `deploy/backups/`, and keeps
-14 days.
+There are two layers:
 
-**Off-box copies (recommended):** Always Free includes 20 GB of Object Storage.
+- **OVH automated backup** (included): a daily snapshot of the whole VPS, keeping the previous day. It's good for
+  "the server died", but it's only one day deep and lives with OVH.
+- **`deploy/backup.sh`** (set up here): dumps every bot database (compressed, restorable with `pg_restore`) into
+  `deploy/backups/`, and keeps 14 days.
 
-1. Console → Storage → Buckets → Create bucket `vh-bots-backups` (Standard tier, private).
-2. Configure rclone on the VM with `rclone config`: new remote named `oci`, type **Oracle Object Storage**, provider
-   **instance_principal_auth** if you've set up a dynamic group and policy for the VM, otherwise **user_principal_auth**
-   with an API key (Profile → API keys → Add API key; rclone reads `~/.oci/config`).
-3. Test it with `rclone lsd oci:`, which should list the bucket.
+**Optional off-VPS copies:** Backblaze B2's free tier (10 GB) is plenty for these dumps.
+
+1. Create a Backblaze account → B2 → **Create a bucket** `vh-bots-backups` (private) → **Application Keys → Add a
+   New Application Key** limited to that bucket, with read and write access.
+2. On the VPS: `rclone config` → new remote named `b2`, type **Backblaze B2**, and enter the key ID and application key.
+3. Test it with `rclone lsd b2:`, which should list the bucket.
 
 Schedule it with `crontab -e`:
 
 ```cron
-30 3 * * * RCLONE_REMOTE=oci:vh-bots-backups /home/ubuntu/vh-bots/villager-bot/deploy/backup.sh >> /home/ubuntu/backup.log 2>&1
+30 3 * * * RCLONE_REMOTE=b2:vh-bots-backups /home/ubuntu/vh-bots/villager-bot/deploy/backup.sh >> /home/ubuntu/backup.log 2>&1
 ```
 
 (Leave out `RCLONE_REMOTE=…` to keep local copies only.)
@@ -162,9 +245,9 @@ Follow [command-design.md §6.3](command-design.md#63-bot-setup-brand-new-applic
 2. **Stop the old bot** on the GCP VM, so the data can't change during the export.
 3. Export exactly as before ([data-migration.md §3](data-migration.md#3-legacy-data-export-run-on-the-current-gcp-vm)).
    `lastpos.json` isn't needed.
-4. Copy the export to the new VM. From your PC:
-   `scp -r <export folder>\* ubuntu@<public-ip>:~/vh-bots/villager-bot/data-export/`
-   (create the folder first with `mkdir -p ~/vh-bots/villager-bot/data-export` on the VM).
+4. Copy the export to the new VPS. From your PC:
+   `scp -r <export folder>\* ubuntu@<vps-ipv4>:~/vh-bots/villager-bot/data-export/`
+   (create the folder first with `mkdir -p ~/vh-bots/villager-bot/data-export` on the VPS).
 
 ### 7.3 Import
 
@@ -180,8 +263,9 @@ kept, about 23,600 archived, higher by whatever was added since). If there are p
 
 ### 7.4 Start the bot
 
+Run **Deploy** with `bot: start-or-restart` (or on the VPS: `docker compose up -d villager-bot`), then watch the logs:
+
 ```bash
-docker compose up -d villager-bot
 docker compose logs -f villager-bot        # Ctrl+C to stop watching
 ```
 
@@ -222,17 +306,17 @@ docker compose logs -f villager-bot        # Ctrl+C to stop watching
 |---|---|
 | Watch logs | `docker compose logs -f villager-bot` |
 | Restart | `docker compose restart villager-bot` |
-| Deploy an update | `git pull && docker compose up -d --build villager-bot` (database migrations apply on startup) |
+| Deploy an update | GitHub → Actions → **Deploy** → `start-or-restart` (by hand: `git pull && ./remote-deploy.sh start-or-restart`). Database migrations apply on startup. |
 | Status | `docker compose ps` |
 | SQL console | `docker compose exec postgres psql -U postgres -d villager_bot` |
 | Manual backup | `./backup.sh` |
 | Disk space | `df -h /` and `docker system df` (clean old images with `docker image prune`) |
 
-Containers restart automatically after a crash or a VM reboot (`restart: unless-stopped`, and Docker starts on boot).
+Containers restart automatically after a crash or a VPS reboot (`restart: unless-stopped`, and Docker starts on boot).
 
-**Idle reclamation:** after the first week, open the instance's **Metrics** in the Oracle console and check the memory
-utilization graph. It should sit above 20%. If it doesn't, and the account isn't Pay As You Go, see
-hosting-options.md for options.
+**Updates and reboots:** unattended-upgrades installs security fixes automatically. Some need a reboot
+(`/var/run/reboot-required` exists); reboot when convenient with `sudo reboot`. Postgres and the bot come back on
+their own.
 
 ---
 

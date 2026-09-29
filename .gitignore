@@ -15,6 +15,7 @@ appsettings.*.local.json
 
 # Deployment secrets
 deploy/.env
+deploy/.env.production
 
 # Test output
 TestResults/

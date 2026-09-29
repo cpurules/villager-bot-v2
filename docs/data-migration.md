@@ -18,8 +18,8 @@ will join this suite.
   creates each bot's role and database from `BOT_DATABASES` and `<NAME>_DB_PASSWORD`, and closes each database to other
   roles. It's idempotent and re-runnable when a bot is added. `deploy/compose.dev.yaml` publishes Postgres on
   `127.0.0.1:5432` for local development.
-- Backups: a nightly `pg_dump` per database (custom format), shipped off-box (e.g. the OCI Object Storage free tier).
-- Postgres's steady memory use also helps an Oracle A1 instance stay above the idle-reclamation threshold (hosting-options).
+- Backups: a nightly `pg_dump` per database (`deploy/backup.sh`, custom format), optionally copied off the VPS
+  (deployment.md, Phase 6), on top of OVH's included daily VPS backup.
 
 Conventions:
 - Discord IDs are `ulong` in code and stored as **`bigint`**. Npgsql has no native unsigned mapping, but snowflakes fit

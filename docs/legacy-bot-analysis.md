@@ -265,6 +265,7 @@ longer exists, so its tier disappears.
 | 2026-09-28 | The main request category is always assumed to exist; no creation or recreation logic. |
 | 2026-09-28 | The new bot is a **brand-new Discord application**. All access (roles, category overwrites, Integrations) gets set up from scratch (command-design §6.3). |
 | 2026-09-28 | **PostgreSQL**, one server shared by the bot suite (one database per bot), everything in **Docker Compose** (`deploy/`). |
+| 2026-09-29 | Hosting: **OVHcloud VPS-1** (US datacenter, about $4.54–6.46/month). Oracle Always Free was abandoned: the account was stuck provisioning and there was no Ampere capacity. Budget cap $10/month (hosting-options.md, "Decision"). |
 | 2026-09-28 | Import: archive requests not touched in **365 days** (by decoded `_rev`) and the 3 stale pulls as `REMOVED`; renumber queue positions by submission time. `lastpos.json` isn't needed. |
 | 2026-09-28 | `/history`-style lookups take a user picker *or* a raw user ID, plus a right-click **Apps → Request History** user command. |
 | 2026-09-28 | Use modern interaction features wherever they fit: modals, user/string select menus, buttons, context-menu commands, Components V2 layouts. |

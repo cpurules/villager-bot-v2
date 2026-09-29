@@ -14,7 +14,7 @@ not author) as a C# .NET 10 app on NetCord. The rewrite was triggered by the los
   This is the spec to implement against.
 - [docs/data-migration.md](docs/data-migration.md): Postgres/EF Core schema, legacy field mapping, export procedure, and cutover.
   Legacy exports live in `data-export/` (git-ignored; contains member IDs).
-- [docs/deployment.md](docs/deployment.md): Oracle VM setup, backups (`deploy/backup.sh`), cutover runbook, day-to-day ops.
+- [docs/deployment.md](docs/deployment.md): OVHcloud VPS setup, backups (`deploy/backup.sh`), cutover runbook, day-to-day ops.
 
 ## Layout
 
