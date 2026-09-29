@@ -1,0 +1,3722 @@
+[
+ {
+  "key": "ADMIRAL",
+  "name": "Admiral",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Cranky",
+  "catchphrase": "aye aye",
+  "internalId": "brd06"
+ },
+ {
+  "key": "AGENT_S",
+  "name": "Agent S",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Peppy",
+  "catchphrase": "sidekick",
+  "internalId": "squ05"
+ },
+ {
+  "key": "AGNES",
+  "name": "Agnes",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Sisterly",
+  "catchphrase": "snuffle",
+  "internalId": "pig17"
+ },
+ {
+  "key": "AL",
+  "name": "Al",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Lazy",
+  "catchphrase": "Ayyeeee",
+  "internalId": "gor08"
+ },
+ {
+  "key": "ALFONSO",
+  "name": "Alfonso",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Lazy",
+  "catchphrase": "it'sa me",
+  "internalId": "crd00"
+ },
+ {
+  "key": "ALICE",
+  "name": "Alice",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Normal",
+  "catchphrase": "guvnor",
+  "internalId": "kal01"
+ },
+ {
+  "key": "ALLI",
+  "name": "Alli",
+  "gender": "Female",
+  "species": "Alligator",
+  "personality": "Snooty",
+  "catchphrase": "graaagh",
+  "internalId": "crd01"
+ },
+ {
+  "key": "AMELIA",
+  "name": "Amelia",
+  "gender": "Female",
+  "species": "Eagle",
+  "personality": "Snooty",
+  "catchphrase": "cuz",
+  "internalId": "pbr01"
+ },
+ {
+  "key": "ANABELLE",
+  "name": "Anabelle",
+  "gender": "Female",
+  "species": "Anteater",
+  "personality": "Peppy",
+  "catchphrase": "snorty",
+  "internalId": "ant03"
+ },
+ {
+  "key": "ANCHOVY",
+  "name": "Anchovy",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Lazy",
+  "catchphrase": "chuurp",
+  "internalId": "brd02"
+ },
+ {
+  "key": "ANKHA",
+  "name": "Ankha",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Snooty",
+  "catchphrase": "me meow",
+  "internalId": "cat19"
+ },
+ {
+  "key": "ANGUS",
+  "name": "Angus",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Cranky",
+  "catchphrase": "macmoo",
+  "internalId": "bul00"
+ },
+ {
+  "key": "ANICOTTI",
+  "name": "Anicotti",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Peppy",
+  "catchphrase": "cannoli",
+  "internalId": "mus10"
+ },
+ {
+  "key": "ANNALISA",
+  "name": "Annalisa",
+  "gender": "Female",
+  "species": "Anteater",
+  "personality": "Normal",
+  "catchphrase": "gumdrop",
+  "internalId": "ant08"
+ },
+ {
+  "key": "ANNALISE",
+  "name": "Annalise",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Snooty",
+  "catchphrase": "nipper",
+  "internalId": "hrs09"
+ },
+ {
+  "key": "ANTONIO",
+  "name": "Antonio",
+  "gender": "Male",
+  "species": "Anteater",
+  "personality": "Jock",
+  "catchphrase": "honk",
+  "internalId": "ant01"
+ },
+ {
+  "key": "APOLLO",
+  "name": "Apollo",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Cranky",
+  "catchphrase": "pah",
+  "internalId": "pbr00"
+ },
+ {
+  "key": "APPLE",
+  "name": "Apple",
+  "gender": "Female",
+  "species": "Hamster",
+  "personality": "Peppy",
+  "catchphrase": "cheekers",
+  "internalId": "ham01"
+ },
+ {
+  "key": "ASTRID",
+  "name": "Astrid",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Snooty",
+  "catchphrase": "my pet",
+  "internalId": "kgr05"
+ },
+ {
+  "key": "AUDIE",
+  "name": "Audie",
+  "gender": "Female",
+  "species": "Wolf",
+  "personality": "Peppy",
+  "catchphrase": "Foxtrot",
+  "internalId": "wol12"
+ },
+ {
+  "key": "AURORA",
+  "name": "Aurora",
+  "gender": "Female",
+  "species": "Penguin",
+  "personality": "Normal",
+  "catchphrase": "b-b-baby",
+  "internalId": "pgn00"
+ },
+ {
+  "key": "AVA",
+  "name": "Ava",
+  "gender": "Female",
+  "species": "Chicken",
+  "personality": "Normal",
+  "catchphrase": "beaker",
+  "internalId": "chn05"
+ },
+ {
+  "key": "AVERY",
+  "name": "Avery",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Cranky",
+  "catchphrase": "skree-haw",
+  "internalId": "pbr05"
+ },
+ {
+  "key": "AXEL",
+  "name": "Axel",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Jock",
+  "catchphrase": "WHONK",
+  "internalId": "elp06"
+ },
+ {
+  "key": "BAABARA",
+  "name": "Baabara",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Snooty",
+  "catchphrase": "daahling",
+  "internalId": "shp01"
+ },
+ {
+  "key": "BAM",
+  "name": "Bam",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Jock",
+  "catchphrase": "kablang",
+  "internalId": "der01"
+ },
+ {
+  "key": "BANGLE",
+  "name": "Bangle",
+  "gender": "Female",
+  "species": "Tiger",
+  "personality": "Peppy",
+  "catchphrase": "growf",
+  "internalId": "tig03"
+ },
+ {
+  "key": "BAROLD",
+  "name": "Barold",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Lazy",
+  "catchphrase": "cubby",
+  "internalId": "cbr16"
+ },
+ {
+  "key": "BEA",
+  "name": "Bea",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Normal",
+  "catchphrase": "bingo",
+  "internalId": "dog10"
+ },
+ {
+  "key": "BEARDO",
+  "name": "Beardo",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Smug",
+  "catchphrase": "whiskers",
+  "internalId": "bea13"
+ },
+ {
+  "key": "BEAU",
+  "name": "Beau",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Lazy",
+  "catchphrase": "saltlick",
+  "internalId": "der07"
+ },
+ {
+  "key": "BECKY",
+  "name": "Becky",
+  "gender": "Female",
+  "species": "Chicken",
+  "personality": "Snooty",
+  "catchphrase": "chicklet",
+  "internalId": "chn09"
+ },
+ {
+  "key": "BELLA",
+  "name": "Bella",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Peppy",
+  "catchphrase": "eeks",
+  "internalId": "mus02"
+ },
+ {
+  "key": "BENEDICT",
+  "name": "Benedict",
+  "gender": "Male",
+  "species": "Chicken",
+  "personality": "Lazy",
+  "catchphrase": "uh-hoo",
+  "internalId": "chn01"
+ },
+ {
+  "key": "BENJAMIN",
+  "name": "Benjamin",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "alrighty",
+  "internalId": "dog16"
+ },
+ {
+  "key": "BERTHA",
+  "name": "Bertha",
+  "gender": "Female",
+  "species": "Hippo",
+  "personality": "Normal",
+  "catchphrase": "bloop",
+  "internalId": "hip03"
+ },
+ {
+  "key": "BETTINA",
+  "name": "Bettina",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Normal",
+  "catchphrase": "eekers",
+  "internalId": "mus15"
+ },
+ {
+  "key": "BIANCA",
+  "name": "Bianca",
+  "gender": "Female",
+  "species": "Tiger",
+  "personality": "Peppy",
+  "catchphrase": "glimmer",
+  "internalId": "tig06"
+ },
+ {
+  "key": "BIFF",
+  "name": "Biff",
+  "gender": "Male",
+  "species": "Hippo",
+  "personality": "Jock",
+  "catchphrase": "squirt",
+  "internalId": "hip04"
+ },
+ {
+  "key": "BIG_TOP",
+  "name": "Big Top",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Lazy",
+  "catchphrase": "villain",
+  "internalId": "elp02"
+ },
+ {
+  "key": "BILL",
+  "name": "Bill",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Jock",
+  "catchphrase": "quacko",
+  "internalId": "duk00"
+ },
+ {
+  "key": "BILLY",
+  "name": "Billy",
+  "gender": "Male",
+  "species": "Goat",
+  "personality": "Jock",
+  "catchphrase": "dagnaabit",
+  "internalId": "goa02"
+ },
+ {
+  "key": "BISKIT",
+  "name": "Biskit",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "dog",
+  "internalId": "dog03"
+ },
+ {
+  "key": "BITTY",
+  "name": "Bitty",
+  "gender": "Female",
+  "species": "Hippo",
+  "personality": "Snooty",
+  "catchphrase": "my dear",
+  "internalId": "hip05"
+ },
+ {
+  "key": "BLAIRE",
+  "name": "Blaire",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Snooty",
+  "catchphrase": "nutlet",
+  "internalId": "squ01"
+ },
+ {
+  "key": "BLANCHE",
+  "name": "Blanche",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Snooty",
+  "catchphrase": "quite so",
+  "internalId": "ost08"
+ },
+ {
+  "key": "BLUEBEAR",
+  "name": "Bluebear",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Peppy",
+  "catchphrase": "peach",
+  "internalId": "cbr00"
+ },
+ {
+  "key": "BOB",
+  "name": "Bob",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Lazy",
+  "catchphrase": "pthhhpth",
+  "internalId": "cat00"
+ },
+ {
+  "key": "BONBON",
+  "name": "Bonbon",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "deelish",
+  "internalId": "rbt17"
+ },
+ {
+  "key": "BONES",
+  "name": "Bones",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "yip yip",
+  "internalId": "dog04"
+ },
+ {
+  "key": "BOOMER",
+  "name": "Boomer",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Lazy",
+  "catchphrase": "human",
+  "internalId": "pgn10"
+ },
+ {
+  "key": "BOONE",
+  "name": "Boone",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Jock",
+  "catchphrase": "baboom",
+  "internalId": "gor02"
+ },
+ {
+  "key": "BOOTS",
+  "name": "Boots",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Jock",
+  "catchphrase": "munchie",
+  "internalId": "crd02"
+ },
+ {
+  "key": "BORIS",
+  "name": "Boris",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Cranky",
+  "catchphrase": "schnort",
+  "internalId": "pig09"
+ },
+ {
+  "key": "BOYD",
+  "name": "Boyd",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Cranky",
+  "catchphrase": "uh-oh",
+  "internalId": "gor05"
+ },
+ {
+  "key": "BREE",
+  "name": "Bree",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Snooty",
+  "catchphrase": "cheeseball",
+  "internalId": "mus03"
+ },
+ {
+  "key": "BROCCOLO",
+  "name": "Broccolo",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Lazy",
+  "catchphrase": "eat it",
+  "internalId": "mus12"
+ },
+ {
+  "key": "BROFFINA",
+  "name": "Broffina",
+  "gender": "Female",
+  "species": "Chicken",
+  "personality": "Snooty",
+  "catchphrase": "cluckadoo",
+  "internalId": "chn12"
+ },
+ {
+  "key": "BRUCE",
+  "name": "Bruce",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Cranky",
+  "catchphrase": "gruff",
+  "internalId": "der03"
+ },
+ {
+  "key": "BUBBLES",
+  "name": "Bubbles",
+  "gender": "Female",
+  "species": "Hippo",
+  "personality": "Peppy",
+  "catchphrase": "hipster",
+  "internalId": "hip02"
+ },
+ {
+  "key": "BUCK",
+  "name": "Buck",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Jock",
+  "catchphrase": "pardner",
+  "internalId": "hrs00"
+ },
+ {
+  "key": "BUD",
+  "name": "Bud",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Jock",
+  "catchphrase": "shredded",
+  "internalId": "lon00"
+ },
+ {
+  "key": "BUNNIE",
+  "name": "Bunnie",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "tee-hee",
+  "internalId": "rbt00"
+ },
+ {
+  "key": "BUTCH",
+  "name": "Butch",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Cranky",
+  "catchphrase": "ROOOOOWF",
+  "internalId": "dog01"
+ },
+ {
+  "key": "BUZZ",
+  "name": "Buzz",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Cranky",
+  "catchphrase": "captain",
+  "internalId": "pbr03"
+ },
+ {
+  "key": "CALLY",
+  "name": "Cally",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "WHEE",
+  "internalId": "squ11"
+ },
+ {
+  "key": "CAMOFROG",
+  "name": "Camofrog",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Cranky",
+  "catchphrase": "ten-hut",
+  "internalId": "flg03"
+ },
+ {
+  "key": "CANBERRA",
+  "name": "Canberra",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Sisterly",
+  "catchphrase": "nuh uh",
+  "internalId": "kal08"
+ },
+ {
+  "key": "CANDI",
+  "name": "Candi",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Peppy",
+  "catchphrase": "sweetie",
+  "internalId": "mus08"
+ },
+ {
+  "key": "CARMEN",
+  "name": "Carmen",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "nougat",
+  "internalId": "rbt16"
+ },
+ {
+  "key": "CAROLINE",
+  "name": "Caroline",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "hulaaaa",
+  "internalId": "squ06"
+ },
+ {
+  "key": "CARRIE",
+  "name": "Carrie",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Normal",
+  "catchphrase": "little one",
+  "internalId": "kgr02"
+ },
+ {
+  "key": "CASHMERE",
+  "name": "Cashmere",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Snooty",
+  "catchphrase": "baaaby",
+  "internalId": "shp04"
+ },
+ {
+  "key": "CELIA",
+  "name": "Celia",
+  "gender": "Female",
+  "species": "Eagle",
+  "personality": "Normal",
+  "catchphrase": "feathers",
+  "internalId": "pbr09"
+ },
+ {
+  "key": "CESAR",
+  "name": "Cesar",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Cranky",
+  "catchphrase": "highness",
+  "internalId": "gor00"
+ },
+ {
+  "key": "CHADDER",
+  "name": "Chadder",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Smug",
+  "catchphrase": "fromage",
+  "internalId": "mus18"
+ },
+ {
+  "key": "CHARLISE",
+  "name": "Charlise",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Sisterly",
+  "catchphrase": "urgh",
+  "internalId": "bea12"
+ },
+ {
+  "key": "CHERI",
+  "name": "Cheri",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Peppy",
+  "catchphrase": "tralala",
+  "internalId": "cbr10"
+ },
+ {
+  "key": "CHERRY",
+  "name": "Cherry",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Sisterly",
+  "catchphrase": "what what",
+  "internalId": "dog17"
+ },
+ {
+  "key": "CHESTER",
+  "name": "Chester",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Lazy",
+  "catchphrase": "rookie",
+  "internalId": "cbr15"
+ },
+ {
+  "key": "CHEVRE",
+  "name": "Chevre",
+  "gender": "Female",
+  "species": "Goat",
+  "personality": "Normal",
+  "catchphrase": "la baa",
+  "internalId": "goa00"
+ },
+ {
+  "key": "CHIEF",
+  "name": "Chief",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Cranky",
+  "catchphrase": "harrumph",
+  "internalId": "wol00"
+ },
+ {
+  "key": "CHOPS",
+  "name": "Chops",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Smug",
+  "catchphrase": "zoink",
+  "internalId": "pig14"
+ },
+ {
+  "key": "CHOW",
+  "name": "Chow",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Cranky",
+  "catchphrase": "aiya",
+  "internalId": "bea03"
+ },
+ {
+  "key": "CHRISSY",
+  "name": "Chrissy",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "sparkles",
+  "internalId": "rbt13"
+ },
+ {
+  "key": "CLAUDE",
+  "name": "Claude",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Lazy",
+  "catchphrase": "hopalong",
+  "internalId": "rbt11"
+ },
+ {
+  "key": "CLAUDIA",
+  "name": "Claudia",
+  "gender": "Female",
+  "species": "Tiger",
+  "personality": "Snooty",
+  "catchphrase": "ooh la la",
+  "internalId": "tig05"
+ },
+ {
+  "key": "CLAY",
+  "name": "Clay",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Lazy",
+  "catchphrase": "thump",
+  "internalId": "ham05"
+ },
+ {
+  "key": "CLEO",
+  "name": "Cleo",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Snooty",
+  "catchphrase": "sugar",
+  "internalId": "hrs07"
+ },
+ {
+  "key": "CLYDE",
+  "name": "Clyde",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Lazy",
+  "catchphrase": "clip-clawp",
+  "internalId": "hrs10"
+ },
+ {
+  "key": "COACH",
+  "name": "Coach",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Jock",
+  "catchphrase": "stubble",
+  "internalId": "bul07"
+ },
+ {
+  "key": "COBB",
+  "name": "Cobb",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Jock",
+  "catchphrase": "hot dog",
+  "internalId": "pig08"
+ },
+ {
+  "key": "COCO",
+  "name": "Coco",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Normal",
+  "catchphrase": "doyoing",
+  "internalId": "rbt02"
+ },
+ {
+  "key": "COLE",
+  "name": "Cole",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Lazy",
+  "catchphrase": "duuude",
+  "internalId": "rbt18"
+ },
+ {
+  "key": "COLTON",
+  "name": "Colton",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Smug",
+  "catchphrase": "check it",
+  "internalId": "hrs11"
+ },
+ {
+  "key": "COOKIE",
+  "name": "Cookie",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Peppy",
+  "catchphrase": "arfer",
+  "internalId": "dog08"
+ },
+ {
+  "key": "COUSTEAU",
+  "name": "Cousteau",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Jock",
+  "catchphrase": "oui oui",
+  "internalId": "flg10"
+ },
+ {
+  "key": "CRANSTON",
+  "name": "Cranston",
+  "gender": "Male",
+  "species": "Ostrich",
+  "personality": "Lazy",
+  "catchphrase": "sweatband",
+  "internalId": "ost06"
+ },
+ {
+  "key": "CROQUE",
+  "name": "Croque",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Cranky",
+  "catchphrase": "as if",
+  "internalId": "flg17"
+ },
+ {
+  "key": "CUBE",
+  "name": "Cube",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Lazy",
+  "catchphrase": "brainfreeze",
+  "internalId": "pgn02"
+ },
+ {
+  "key": "CURLOS",
+  "name": "Curlos",
+  "gender": "Male",
+  "species": "Sheep",
+  "personality": "Smug",
+  "catchphrase": "shearly",
+  "internalId": "shp08"
+ },
+ {
+  "key": "CURLY",
+  "name": "Curly",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Jock",
+  "catchphrase": "nyoink",
+  "internalId": "pig00"
+ },
+ {
+  "key": "CURT",
+  "name": "Curt",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Cranky",
+  "catchphrase": "fuzzball",
+  "internalId": "bea02"
+ },
+ {
+  "key": "CYD",
+  "name": "Cyd",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Cranky",
+  "catchphrase": "rockin'",
+  "internalId": "elp12"
+ },
+ {
+  "key": "CYRANO",
+  "name": "Cyrano",
+  "gender": "Male",
+  "species": "Anteater",
+  "personality": "Cranky",
+  "catchphrase": "ah-CHOO",
+  "internalId": "ant00"
+ },
+ {
+  "key": "DAISY",
+  "name": "Daisy",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Normal",
+  "catchphrase": "bow-WOW",
+  "internalId": "dog07"
+ },
+ {
+  "key": "DEENA",
+  "name": "Deena",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Normal",
+  "catchphrase": "woowoo",
+  "internalId": "duk04"
+ },
+ {
+  "key": "DEIRDRE",
+  "name": "Deirdre",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Sisterly",
+  "catchphrase": "whatevs",
+  "internalId": "der04"
+ },
+ {
+  "key": "DEL",
+  "name": "Del",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Cranky",
+  "catchphrase": "gronk",
+  "internalId": "crd04"
+ },
+ {
+  "key": "DELI",
+  "name": "Deli",
+  "gender": "Male",
+  "species": "Monkey",
+  "personality": "Lazy",
+  "catchphrase": "monch",
+  "internalId": "mnk08"
+ },
+ {
+  "key": "DERWIN",
+  "name": "Derwin",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Lazy",
+  "catchphrase": "derrrrr",
+  "internalId": "duk08"
+ },
+ {
+  "key": "DIANA",
+  "name": "Diana",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Snooty",
+  "catchphrase": "no doy",
+  "internalId": "der08"
+ },
+ {
+  "key": "DIVA",
+  "name": "Diva",
+  "gender": "Female",
+  "species": "Frog",
+  "personality": "Sisterly",
+  "catchphrase": "ya know",
+  "internalId": "flg18"
+ },
+ {
+  "key": "DIZZY",
+  "name": "Dizzy",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Lazy",
+  "catchphrase": "woo-oo",
+  "internalId": "elp01"
+ },
+ {
+  "key": "DOBIE",
+  "name": "Dobie",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Cranky",
+  "catchphrase": "ohmmm",
+  "internalId": "wol04"
+ },
+ {
+  "key": "DOC",
+  "name": "Doc",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Lazy",
+  "catchphrase": "ol' bunny",
+  "internalId": "rbt10"
+ },
+ {
+  "key": "DOM",
+  "name": "Dom",
+  "gender": "Male",
+  "species": "Sheep",
+  "personality": "Jock",
+  "catchphrase": "indeedaroo",
+  "internalId": "shp15"
+ },
+ {
+  "key": "DORA",
+  "name": "Dora",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Normal",
+  "catchphrase": "squeaky",
+  "internalId": "mus00"
+ },
+ {
+  "key": "DOTTY",
+  "name": "Dotty",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "wee one",
+  "internalId": "rbt01"
+ },
+ {
+  "key": "DRAGO",
+  "name": "Drago",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Lazy",
+  "catchphrase": "burrrn",
+  "internalId": "crd08"
+ },
+ {
+  "key": "DRAKE",
+  "name": "Drake",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Lazy",
+  "catchphrase": "quacko",
+  "internalId": "duk09"
+ },
+ {
+  "key": "DRIFT",
+  "name": "Drift",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Jock",
+  "catchphrase": "brah",
+  "internalId": "flg04"
+ },
+ {
+  "key": "ED",
+  "name": "Ed",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Smug",
+  "catchphrase": "greenhorn",
+  "internalId": "hrs06"
+ },
+ {
+  "key": "EGBERT",
+  "name": "Egbert",
+  "gender": "Male",
+  "species": "Chicken",
+  "personality": "Lazy",
+  "catchphrase": "doodle-duh",
+  "internalId": "chn02"
+ },
+ {
+  "key": "ELISE",
+  "name": "Elise",
+  "gender": "Female",
+  "species": "Monkey",
+  "personality": "Snooty",
+  "catchphrase": "puh-lease",
+  "internalId": "mnk05"
+ },
+ {
+  "key": "ELLIE",
+  "name": "Ellie",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Normal",
+  "catchphrase": "li'l one",
+  "internalId": "elp07"
+ },
+ {
+  "key": "ELMER",
+  "name": "Elmer",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Lazy",
+  "catchphrase": "tenderfoot",
+  "internalId": "hrs03"
+ },
+ {
+  "key": "ELOISE",
+  "name": "Eloise",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Snooty",
+  "catchphrase": "tooooot",
+  "internalId": "elp03"
+ },
+ {
+  "key": "ELVIS",
+  "name": "Elvis",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Cranky",
+  "catchphrase": "unh-hunh",
+  "internalId": "lon01"
+ },
+ {
+  "key": "ERIK",
+  "name": "Erik",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Lazy",
+  "catchphrase": "chow down",
+  "internalId": "der09"
+ },
+ {
+  "key": "EUNICE",
+  "name": "Eunice",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Normal",
+  "catchphrase": "lambchop",
+  "internalId": "shp02"
+ },
+ {
+  "key": "EUGENE",
+  "name": "Eugene",
+  "gender": "Male",
+  "species": "Koala",
+  "personality": "Smug",
+  "catchphrase": "yeah buddy",
+  "internalId": "kal10"
+ },
+ {
+  "key": "FANG",
+  "name": "Fang",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Cranky",
+  "catchphrase": "cha-chomp",
+  "internalId": "wol06"
+ },
+ {
+  "key": "FAUNA",
+  "name": "Fauna",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Normal",
+  "catchphrase": "dearie",
+  "internalId": "der00"
+ },
+ {
+  "key": "FELICITY",
+  "name": "Felicity",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Peppy",
+  "catchphrase": "mimimi",
+  "internalId": "cat17"
+ },
+ {
+  "key": "FILBERT",
+  "name": "Filbert",
+  "gender": "Male",
+  "species": "Squirrel",
+  "personality": "Lazy",
+  "catchphrase": "bucko",
+  "internalId": "squ02"
+ },
+ {
+  "key": "FLIP",
+  "name": "Flip",
+  "gender": "Male",
+  "species": "Monkey",
+  "personality": "Jock",
+  "catchphrase": "rerack",
+  "internalId": "mnk06"
+ },
+ {
+  "key": "FLO",
+  "name": "Flo",
+  "gender": "Female",
+  "species": "Penguin",
+  "personality": "Sisterly",
+  "catchphrase": "cha",
+  "internalId": "pgn13"
+ },
+ {
+  "key": "FLORA",
+  "name": "Flora",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Peppy",
+  "catchphrase": "pinky",
+  "internalId": "ost09"
+ },
+ {
+  "key": "FLURRY",
+  "name": "Flurry",
+  "gender": "Female",
+  "species": "Hamster",
+  "personality": "Normal",
+  "catchphrase": "powderpuff",
+  "internalId": "ham06"
+ },
+ {
+  "key": "FRANCINE",
+  "name": "Francine",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Snooty",
+  "catchphrase": "karat",
+  "internalId": "rbt12"
+ },
+ {
+  "key": "FRANK",
+  "name": "Frank",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Cranky",
+  "catchphrase": "crushy",
+  "internalId": "pbr06"
+ },
+ {
+  "key": "FRECKLES",
+  "name": "Freckles",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Peppy",
+  "catchphrase": "ducky",
+  "internalId": "duk07"
+ },
+ {
+  "key": "FREYA",
+  "name": "Freya",
+  "gender": "Female",
+  "species": "Wolf",
+  "personality": "Snooty",
+  "catchphrase": "uff da",
+  "internalId": "wol05"
+ },
+ {
+  "key": "FRIGA",
+  "name": "Friga",
+  "gender": "Female",
+  "species": "Penguin",
+  "personality": "Snooty",
+  "catchphrase": "brrmph",
+  "internalId": "pgn04"
+ },
+ {
+  "key": "FRITA",
+  "name": "Frita",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Sisterly",
+  "catchphrase": "oh ewe",
+  "internalId": "shp11"
+ },
+ {
+  "key": "FROBERT",
+  "name": "Frobert",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Jock",
+  "catchphrase": "fribbit",
+  "internalId": "flg02"
+ },
+ {
+  "key": "FUCHSIA",
+  "name": "Fuchsia",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Sisterly",
+  "catchphrase": "precious",
+  "internalId": "der06"
+ },
+ {
+  "key": "GABI",
+  "name": "Gabi",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "honeybun",
+  "internalId": "rbt05"
+ },
+ {
+  "key": "GALA",
+  "name": "Gala",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Normal",
+  "catchphrase": "snortie",
+  "internalId": "pig13"
+ },
+ {
+  "key": "GASTON",
+  "name": "Gaston",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Cranky",
+  "catchphrase": "mon chou",
+  "internalId": "rbt04"
+ },
+ {
+  "key": "GAYLE",
+  "name": "Gayle",
+  "gender": "Female",
+  "species": "Alligator",
+  "personality": "Normal",
+  "catchphrase": "snacky",
+  "internalId": "crd07"
+ },
+ {
+  "key": "GENJI",
+  "name": "Genji",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Jock",
+  "catchphrase": "mochi",
+  "internalId": "rbt08"
+ },
+ {
+  "key": "GIGI",
+  "name": "Gigi",
+  "gender": "Female",
+  "species": "Frog",
+  "personality": "Snooty",
+  "catchphrase": "ribette",
+  "internalId": "flg16"
+ },
+ {
+  "key": "GLADYS",
+  "name": "Gladys",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Normal",
+  "catchphrase": "stretch",
+  "internalId": "ost01"
+ },
+ {
+  "key": "GLORIA",
+  "name": "Gloria",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Snooty",
+  "catchphrase": "quacker",
+  "internalId": "duk15"
+ },
+ {
+  "key": "GOLDIE",
+  "name": "Goldie",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Normal",
+  "catchphrase": "woof",
+  "internalId": "dog00"
+ },
+ {
+  "key": "GONZO",
+  "name": "Gonzo",
+  "gender": "Male",
+  "species": "Koala",
+  "personality": "Cranky",
+  "catchphrase": "mate",
+  "internalId": "kal04"
+ },
+ {
+  "key": "GOOSE",
+  "name": "Goose",
+  "gender": "Male",
+  "species": "Chicken",
+  "personality": "Jock",
+  "catchphrase": "buh-kay",
+  "internalId": "chn00"
+ },
+ {
+  "key": "GRAHAM",
+  "name": "Graham",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Smug",
+  "catchphrase": "indeed",
+  "internalId": "ham02"
+ },
+ {
+  "key": "GRETA",
+  "name": "Greta",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Snooty",
+  "catchphrase": "yelp",
+  "internalId": "mus16"
+ },
+ {
+  "key": "GRIZZLY",
+  "name": "Grizzly",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Cranky",
+  "catchphrase": "grrr...",
+  "internalId": "bea09"
+ },
+ {
+  "key": "GROUCHO",
+  "name": "Groucho",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Cranky",
+  "catchphrase": "grumble",
+  "internalId": "bea06"
+ },
+ {
+  "key": "GRUFF",
+  "name": "Gruff",
+  "gender": "Male",
+  "species": "Goat",
+  "personality": "Cranky",
+  "catchphrase": "bleh eh eh",
+  "internalId": "goa04"
+ },
+ {
+  "key": "GWEN",
+  "name": "Gwen",
+  "gender": "Female",
+  "species": "Penguin",
+  "personality": "Snooty",
+  "catchphrase": "h-h-hon",
+  "internalId": "pgn05"
+ },
+ {
+  "key": "HAMLET",
+  "name": "Hamlet",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Jock",
+  "catchphrase": "hammie",
+  "internalId": "ham00"
+ },
+ {
+  "key": "HAMPHREY",
+  "name": "Hamphrey",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Cranky",
+  "catchphrase": "snort",
+  "internalId": "ham07"
+ },
+ {
+  "key": "HANS",
+  "name": "Hans",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Smug",
+  "catchphrase": "groovy",
+  "internalId": "gor10"
+ },
+ {
+  "key": "HARRY",
+  "name": "Harry",
+  "gender": "Male",
+  "species": "Hippo",
+  "personality": "Cranky",
+  "catchphrase": "beach bum",
+  "internalId": "hip08"
+ },
+ {
+  "key": "HAZEL",
+  "name": "Hazel",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Sisterly",
+  "catchphrase": "uni-wow",
+  "internalId": "squ18"
+ },
+ {
+  "key": "HENRY",
+  "name": "Henry",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Smug",
+  "catchphrase": "snoozit",
+  "internalId": "flg19"
+ },
+ {
+  "key": "HIPPEUX",
+  "name": "Hippeux",
+  "gender": "Male",
+  "species": "Hippo",
+  "personality": "Smug",
+  "catchphrase": "natch",
+  "internalId": "hip09"
+ },
+ {
+  "key": "HOPKINS",
+  "name": "Hopkins",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Lazy",
+  "catchphrase": "thumper",
+  "internalId": "rbt14"
+ },
+ {
+  "key": "HOPPER",
+  "name": "Hopper",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Cranky",
+  "catchphrase": "slushie",
+  "internalId": "pgn03"
+ },
+ {
+  "key": "HORNSBY",
+  "name": "Hornsby",
+  "gender": "Male",
+  "species": "Rhino",
+  "personality": "Lazy",
+  "catchphrase": "schnozzle",
+  "internalId": "rhn04"
+ },
+ {
+  "key": "HUCK",
+  "name": "Huck",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Smug",
+  "catchphrase": "hopper",
+  "internalId": "flg11"
+ },
+ {
+  "key": "HUGH",
+  "name": "Hugh",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Lazy",
+  "catchphrase": "snortle",
+  "internalId": "pig03"
+ },
+ {
+  "key": "IGGLY",
+  "name": "Iggly",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Jock",
+  "catchphrase": "waddler",
+  "internalId": "pgn11"
+ },
+ {
+  "key": "IKE",
+  "name": "Ike",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Cranky",
+  "catchphrase": "roadie",
+  "internalId": "bea11"
+ },
+ {
+  "key": "JAKEYPAL",
+  "name": "Jakey",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Lazy",
+  "catchphrase": "chuuuuurp",
+  "internalId": "brd11"
+ },
+ {
+  "key": "JACQUES",
+  "name": "Jacques",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Smug",
+  "catchphrase": "zut alors",
+  "internalId": "brd16"
+ },
+ {
+  "key": "JAMBETTE",
+  "name": "Jambette",
+  "gender": "Female",
+  "species": "Frog",
+  "personality": "Normal",
+  "catchphrase": "croak-kay",
+  "internalId": "flg13"
+ },
+ {
+  "key": "JAY",
+  "name": "Jay",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "heeeeeyy",
+  "internalId": "brd00"
+ },
+ {
+  "key": "JEREMIAH",
+  "name": "Jeremiah",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Lazy",
+  "catchphrase": "nee-deep",
+  "internalId": "flg07"
+ },
+ {
+  "key": "JITTERS",
+  "name": "Jitters",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "bzzert",
+  "internalId": "brd04"
+ },
+ {
+  "key": "JOEY",
+  "name": "Joey",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Lazy",
+  "catchphrase": "bleeeeeck",
+  "internalId": "duk01"
+ },
+ {
+  "key": "JUDY",
+  "name": "Judy",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Snooty",
+  "catchphrase": "myohmy",
+  "internalId": "cbr19"
+ },
+ {
+  "key": "JULIA",
+  "name": "Julia",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Snooty",
+  "catchphrase": "dahling",
+  "internalId": "ost05"
+ },
+ {
+  "key": "JULIAN",
+  "name": "Julian",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Smug",
+  "catchphrase": "glitter",
+  "internalId": "hrs13"
+ },
+ {
+  "key": "JUNE",
+  "name": "June",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Normal",
+  "catchphrase": "rainbow",
+  "internalId": "cbr13"
+ },
+ {
+  "key": "KABUKI",
+  "name": "Kabuki",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Cranky",
+  "catchphrase": "meooo-OH",
+  "internalId": "cat09"
+ },
+ {
+  "key": "KATT",
+  "name": "Katt",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Sisterly",
+  "catchphrase": "purrty",
+  "internalId": "cat21"
+ },
+ {
+  "key": "KEATON",
+  "name": "Keaton",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Smug",
+  "catchphrase": "wingo",
+  "internalId": "pbr08"
+ },
+ {
+  "key": "KEN",
+  "name": "Ken",
+  "gender": "Male",
+  "species": "Chicken",
+  "personality": "Smug",
+  "catchphrase": "no doubt",
+  "internalId": "chn13"
+ },
+ {
+  "key": "KETCHUP",
+  "name": "Ketchup",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Peppy",
+  "catchphrase": "bitty",
+  "internalId": "duk13"
+ },
+ {
+  "key": "KEVIN",
+  "name": "Kevin",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Jock",
+  "catchphrase": "weeweewee",
+  "internalId": "pig15"
+ },
+ {
+  "key": "KID_CAT",
+  "name": "Kid Cat",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Jock",
+  "catchphrase": "psst",
+  "internalId": "cat10"
+ },
+ {
+  "key": "KIDD",
+  "name": "Kidd",
+  "gender": "Male",
+  "species": "Goat",
+  "personality": "Smug",
+  "catchphrase": "wut",
+  "internalId": "goa07"
+ },
+ {
+  "key": "KIKI",
+  "name": "Kiki",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Normal",
+  "catchphrase": "kitty cat",
+  "internalId": "cat04"
+ },
+ {
+  "key": "KITT",
+  "name": "Kitt",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Normal",
+  "catchphrase": "child",
+  "internalId": "kgr00"
+ },
+ {
+  "key": "KITTY",
+  "name": "Kitty",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Snooty",
+  "catchphrase": "mrowrr",
+  "internalId": "cat14"
+ },
+ {
+  "key": "KLAUS",
+  "name": "Klaus",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Smug",
+  "catchphrase": "strudel",
+  "internalId": "bea14"
+ },
+ {
+  "key": "KNOX",
+  "name": "Knox",
+  "gender": "Male",
+  "species": "Chicken",
+  "personality": "Cranky",
+  "catchphrase": "cluckling",
+  "internalId": "chn11"
+ },
+ {
+  "key": "KODY",
+  "name": "Kody",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Jock",
+  "catchphrase": "grah-grah",
+  "internalId": "cbr04"
+ },
+ {
+  "key": "KYLE",
+  "name": "Kyle",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Smug",
+  "catchphrase": "alpha",
+  "internalId": "wol10"
+ },
+ {
+  "key": "LEONARDO",
+  "name": "Leonardo",
+  "gender": "Male",
+  "species": "Tiger",
+  "personality": "Jock",
+  "catchphrase": "flexin",
+  "internalId": "tig04"
+ },
+ {
+  "key": "LEOPOLD",
+  "name": "Leopold",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Smug",
+  "catchphrase": "lion cub",
+  "internalId": "lon04"
+ },
+ {
+  "key": "LILY",
+  "name": "Lily",
+  "gender": "Female",
+  "species": "Frog",
+  "personality": "Normal",
+  "catchphrase": "toady",
+  "internalId": "flg00"
+ },
+ {
+  "key": "LIMBERG",
+  "name": "Limberg",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Cranky",
+  "catchphrase": "squinky",
+  "internalId": "mus01"
+ },
+ {
+  "key": "LIONEL",
+  "name": "Lionel",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Smug",
+  "catchphrase": "precisely",
+  "internalId": "lon08"
+ },
+ {
+  "key": "LOBO",
+  "name": "Lobo",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Cranky",
+  "catchphrase": "ah-rooooo",
+  "internalId": "wol01"
+ },
+ {
+  "key": "LOLLY",
+  "name": "Lolly",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Normal",
+  "catchphrase": "bonbon",
+  "internalId": "cat18"
+ },
+ {
+  "key": "LOPEZ",
+  "name": "Lopez",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Smug",
+  "catchphrase": "buckaroo",
+  "internalId": "der05"
+ },
+ {
+  "key": "LOUIE",
+  "name": "Louie",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Jock",
+  "catchphrase": "hoo hoo ha",
+  "internalId": "gor04"
+ },
+ {
+  "key": "LUCHA",
+  "name": "Lucha",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Smug",
+  "catchphrase": "cacaw",
+  "internalId": "brd15"
+ },
+ {
+  "key": "LUCKY",
+  "name": "Lucky",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "rrr-owch",
+  "internalId": "dog02"
+ },
+ {
+  "key": "LUCY",
+  "name": "Lucy",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Normal",
+  "catchphrase": "snoooink",
+  "internalId": "pig04"
+ },
+ {
+  "key": "LYMAN",
+  "name": "Lyman",
+  "gender": "Male",
+  "species": "Koala",
+  "personality": "Jock",
+  "catchphrase": "chips",
+  "internalId": "kal09"
+ },
+ {
+  "key": "MAC",
+  "name": "Mac",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Jock",
+  "catchphrase": "woo woof",
+  "internalId": "dog14"
+ },
+ {
+  "key": "MADDIE",
+  "name": "Maddie",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Peppy",
+  "catchphrase": "yippee",
+  "internalId": "dog09"
+ },
+ {
+  "key": "MAELLE",
+  "name": "Maelle",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Snooty",
+  "catchphrase": "duckling",
+  "internalId": "duk03"
+ },
+ {
+  "key": "MAGGIE",
+  "name": "Maggie",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Normal",
+  "catchphrase": "schep",
+  "internalId": "pig10"
+ },
+ {
+  "key": "MALLARY",
+  "name": "Mallary",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Snooty",
+  "catchphrase": "quackpth",
+  "internalId": "duk06"
+ },
+ {
+  "key": "MAPLE",
+  "name": "Maple",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Normal",
+  "catchphrase": "honey",
+  "internalId": "cbr01"
+ },
+ {
+  "key": "MARCEL",
+  "name": "Marcel",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "non",
+  "internalId": "dog15"
+ },
+ {
+  "key": "MARCIE",
+  "name": "Marcie",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Normal",
+  "catchphrase": "pouches",
+  "internalId": "kgr10"
+ },
+ {
+  "key": "MARGIE",
+  "name": "Margie",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Normal",
+  "catchphrase": "tootie",
+  "internalId": "elp04"
+ },
+ {
+  "key": "MARINA",
+  "name": "Marina",
+  "gender": "Female",
+  "species": "Octopus",
+  "personality": "Normal",
+  "catchphrase": "blurp",
+  "internalId": "ocp01"
+ },
+ {
+  "key": "MARSHAL",
+  "name": "Marshal",
+  "gender": "Male",
+  "species": "Squirrel",
+  "personality": "Smug",
+  "catchphrase": "sulky",
+  "internalId": "squ17"
+ },
+ {
+  "key": "MATHILDA",
+  "name": "Mathilda",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Snooty",
+  "catchphrase": "wee baby",
+  "internalId": "kgr01"
+ },
+ {
+  "key": "MEGAN",
+  "name": "Megan",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Normal",
+  "catchphrase": "sundae",
+  "internalId": "bea15"
+ },
+ {
+  "key": "MELBA",
+  "name": "Melba",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Normal",
+  "catchphrase": "toasty",
+  "internalId": "kal02"
+ },
+ {
+  "key": "MERENGUE",
+  "name": "Merengue",
+  "gender": "Female",
+  "species": "Rhino",
+  "personality": "Normal",
+  "catchphrase": "shortcake",
+  "internalId": "rhn07"
+ },
+ {
+  "key": "MERRY",
+  "name": "Merry",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Peppy",
+  "catchphrase": "mweee",
+  "internalId": "cat16"
+ },
+ {
+  "key": "MIDGE",
+  "name": "Midge",
+  "gender": "Female",
+  "species": "Bird",
+  "personality": "Normal",
+  "catchphrase": "tweedledee",
+  "internalId": "brd08"
+ },
+ {
+  "key": "MINT",
+  "name": "Mint",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Snooty",
+  "catchphrase": "ahhhhhh",
+  "internalId": "squ09"
+ },
+ {
+  "key": "MIRA",
+  "name": "Mira",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Sisterly",
+  "catchphrase": "cottontail",
+  "internalId": "rbt19"
+ },
+ {
+  "key": "MIRANDA",
+  "name": "Miranda",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Snooty",
+  "catchphrase": "quackulous",
+  "internalId": "duk12"
+ },
+ {
+  "key": "MITZI",
+  "name": "Mitzi",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Normal",
+  "catchphrase": "mew",
+  "internalId": "cat01"
+ },
+ {
+  "key": "MOE",
+  "name": "Moe",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Lazy",
+  "catchphrase": "myawn",
+  "internalId": "cat08"
+ },
+ {
+  "key": "MOLLY",
+  "name": "Molly",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Normal",
+  "catchphrase": "quackidee",
+  "internalId": "duk16"
+ },
+ {
+  "key": "MONIQUE",
+  "name": "Monique",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Snooty",
+  "catchphrase": "pffffft",
+  "internalId": "cat11"
+ },
+ {
+  "key": "MONTY",
+  "name": "Monty",
+  "gender": "Male",
+  "species": "Monkey",
+  "personality": "Cranky",
+  "catchphrase": "g'tang",
+  "internalId": "mnk04"
+ },
+ {
+  "key": "MOOSE",
+  "name": "Moose",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Jock",
+  "catchphrase": "shorty",
+  "internalId": "mus14"
+ },
+ {
+  "key": "MOTT",
+  "name": "Mott",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Jock",
+  "catchphrase": "cagey",
+  "internalId": "lon06"
+ },
+ {
+  "key": "MUFFY",
+  "name": "Muffy",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Sisterly",
+  "catchphrase": "nightshade",
+  "internalId": "shp12"
+ },
+ {
+  "key": "MURPHY",
+  "name": "Murphy",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Cranky",
+  "catchphrase": "laddie",
+  "internalId": "cbr07"
+ },
+ {
+  "key": "NAN",
+  "name": "Nan",
+  "gender": "Female",
+  "species": "Goat",
+  "personality": "Normal",
+  "catchphrase": "kid",
+  "internalId": "goa01"
+ },
+ {
+  "key": "NANA",
+  "name": "Nana",
+  "gender": "Female",
+  "species": "Monkey",
+  "personality": "Normal",
+  "catchphrase": "po po",
+  "internalId": "mnk01"
+ },
+ {
+  "key": "NAOMI",
+  "name": "Naomi",
+  "gender": "Female",
+  "species": "Cow",
+  "personality": "Snooty",
+  "catchphrase": "moolah",
+  "internalId": "cow07"
+ },
+ {
+  "key": "NATE",
+  "name": "Nate",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Lazy",
+  "catchphrase": "yawwwn",
+  "internalId": "bea05"
+ },
+ {
+  "key": "NIBBLES",
+  "name": "Nibbles",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Peppy",
+  "catchphrase": "niblet",
+  "internalId": "squ04"
+ },
+ {
+  "key": "NORMA",
+  "name": "Norma",
+  "gender": "Female",
+  "species": "Cow",
+  "personality": "Normal",
+  "catchphrase": "hoof hoo",
+  "internalId": "cow06"
+ },
+ {
+  "key": "OCTAVIAN",
+  "name": "Octavian",
+  "gender": "Male",
+  "species": "Octopus",
+  "personality": "Cranky",
+  "catchphrase": "sucker",
+  "internalId": "ocp00"
+ },
+ {
+  "key": "OHARE",
+  "name": "O'Hare",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Smug",
+  "catchphrase": "amigo",
+  "internalId": "rbt15"
+ },
+ {
+  "key": "OLAF",
+  "name": "Olaf",
+  "gender": "Male",
+  "species": "Anteater",
+  "personality": "Smug",
+  "catchphrase": "whiffa",
+  "internalId": "ant09"
+ },
+ {
+  "key": "OLIVE",
+  "name": "Olive",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Normal",
+  "catchphrase": "sweet pea",
+  "internalId": "cbr09"
+ },
+ {
+  "key": "OLIVIA",
+  "name": "Olivia",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Snooty",
+  "catchphrase": "purrr",
+  "internalId": "cat03"
+ },
+ {
+  "key": "OPAL",
+  "name": "Opal",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Snooty",
+  "catchphrase": "snoot",
+  "internalId": "elp00"
+ },
+ {
+  "key": "OZZIE",
+  "name": "Ozzie",
+  "gender": "Male",
+  "species": "Koala",
+  "personality": "Lazy",
+  "catchphrase": "ol' bear",
+  "internalId": "kal05"
+ },
+ {
+  "key": "PANCETTI",
+  "name": "Pancetti",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Snooty",
+  "catchphrase": "sooey",
+  "internalId": "pig16"
+ },
+ {
+  "key": "PANGO",
+  "name": "Pango",
+  "gender": "Female",
+  "species": "Anteater",
+  "personality": "Peppy",
+  "catchphrase": "snooooof",
+  "internalId": "ant02"
+ },
+ {
+  "key": "PAOLO",
+  "name": "Paolo",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Lazy",
+  "catchphrase": "pal",
+  "internalId": "elp05"
+ },
+ {
+  "key": "PAPI",
+  "name": "Papi",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Lazy",
+  "catchphrase": "haaay",
+  "internalId": "hrs12"
+ },
+ {
+  "key": "PASHMINA",
+  "name": "Pashmina",
+  "gender": "Female",
+  "species": "Goat",
+  "personality": "Sisterly",
+  "catchphrase": "kidders",
+  "internalId": "goa08"
+ },
+ {
+  "key": "PATE",
+  "name": "Pate",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Peppy",
+  "catchphrase": "quackle",
+  "internalId": "duk02"
+ },
+ {
+  "key": "PATTY",
+  "name": "Patty",
+  "gender": "Female",
+  "species": "Cow",
+  "personality": "Peppy",
+  "catchphrase": "how-now",
+  "internalId": "cow00"
+ },
+ {
+  "key": "PAULA",
+  "name": "Paula",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Sisterly",
+  "catchphrase": "yodelay",
+  "internalId": "bea10"
+ },
+ {
+  "key": "PEACHES",
+  "name": "Peaches",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Normal",
+  "catchphrase": "neighbor",
+  "internalId": "hrs08"
+ },
+ {
+  "key": "PEANUT",
+  "name": "Peanut",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Peppy",
+  "catchphrase": "slacker",
+  "internalId": "squ00"
+ },
+ {
+  "key": "PECAN",
+  "name": "Pecan",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Snooty",
+  "catchphrase": "chipmunk",
+  "internalId": "squ03"
+ },
+ {
+  "key": "PECK",
+  "name": "Peck",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "crunch",
+  "internalId": "brd17"
+ },
+ {
+  "key": "PEEWEE",
+  "name": "Peewee",
+  "gender": "Male",
+  "species": "Gorilla",
+  "personality": "Cranky",
+  "catchphrase": "li'l dude",
+  "internalId": "gor01"
+ },
+ {
+  "key": "PEGGY",
+  "name": "Peggy",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Peppy",
+  "catchphrase": "shweetie",
+  "internalId": "pig11"
+ },
+ {
+  "key": "PEKOE",
+  "name": "Pekoe",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Normal",
+  "catchphrase": "bud",
+  "internalId": "cbr14"
+ },
+ {
+  "key": "PENELOPE",
+  "name": "Penelope",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Peppy",
+  "catchphrase": "oh bow",
+  "internalId": "mus17"
+ },
+ {
+  "key": "PHIL",
+  "name": "Phil",
+  "gender": "Male",
+  "species": "Ostrich",
+  "personality": "Smug",
+  "catchphrase": "hurk",
+  "internalId": "ost07"
+ },
+ {
+  "key": "PHOEBE",
+  "name": "Phoebe",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Sisterly",
+  "catchphrase": "sparky",
+  "internalId": "ost10"
+ },
+ {
+  "key": "PIERCE",
+  "name": "Pierce",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Jock",
+  "catchphrase": "hawkeye",
+  "internalId": "pbr02"
+ },
+ {
+  "key": "PIETRO",
+  "name": "Pietro",
+  "gender": "Male",
+  "species": "Sheep",
+  "personality": "Smug",
+  "catchphrase": "honk honk",
+  "internalId": "shp13"
+ },
+ {
+  "key": "PINKY",
+  "name": "Pinky",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Peppy",
+  "catchphrase": "wah",
+  "internalId": "bea01"
+ },
+ {
+  "key": "PIPER",
+  "name": "Piper",
+  "gender": "Female",
+  "species": "Bird",
+  "personality": "Peppy",
+  "catchphrase": "chickadee",
+  "internalId": "brd05"
+ },
+ {
+  "key": "PIPPY",
+  "name": "Pippy",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "li'l hare",
+  "internalId": "rbt06"
+ },
+ {
+  "key": "PLUCKY",
+  "name": "Plucky",
+  "gender": "Female",
+  "species": "Chicken",
+  "personality": "Sisterly",
+  "catchphrase": "chicky-poo",
+  "internalId": "chn10"
+ },
+ {
+  "key": "POMPOM",
+  "name": "Pompom",
+  "gender": "Female",
+  "species": "Duck",
+  "personality": "Peppy",
+  "catchphrase": "rah rah",
+  "internalId": "duk05"
+ },
+ {
+  "key": "PONCHO",
+  "name": "Poncho",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Jock",
+  "catchphrase": "li'l bear",
+  "internalId": "cbr02"
+ },
+ {
+  "key": "POPPY",
+  "name": "Poppy",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "nutty",
+  "internalId": "squ15"
+ },
+ {
+  "key": "PORTIA",
+  "name": "Portia",
+  "gender": "Female",
+  "species": "Dog",
+  "personality": "Snooty",
+  "catchphrase": "ruffian",
+  "internalId": "dog05"
+ },
+ {
+  "key": "PRINCE",
+  "name": "Prince",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Lazy",
+  "catchphrase": "burrup",
+  "internalId": "flg12"
+ },
+ {
+  "key": "PUCK",
+  "name": "Puck",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Lazy",
+  "catchphrase": "brrrrrrrrr",
+  "internalId": "pgn06"
+ },
+ {
+  "key": "PUDDLES",
+  "name": "Puddles",
+  "gender": "Female",
+  "species": "Frog",
+  "personality": "Peppy",
+  "catchphrase": "splish",
+  "internalId": "flg06"
+ },
+ {
+  "key": "PUDGE",
+  "name": "Pudge",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Lazy",
+  "catchphrase": "pudgy",
+  "internalId": "cbr03"
+ },
+ {
+  "key": "PUNCHY",
+  "name": "Punchy",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Lazy",
+  "catchphrase": "mrmpht",
+  "internalId": "cat06"
+ },
+ {
+  "key": "PURRL",
+  "name": "Purrl",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Snooty",
+  "catchphrase": "kitten",
+  "internalId": "cat07"
+ },
+ {
+  "key": "QUEENIE",
+  "name": "Queenie",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Snooty",
+  "catchphrase": "chicken",
+  "internalId": "ost00"
+ },
+ {
+  "key": "QUILLSON",
+  "name": "Quillson",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Smug",
+  "catchphrase": "ridukulous",
+  "internalId": "duk17"
+ },
+ {
+  "key": "RADDLE",
+  "name": "Raddle",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Lazy",
+  "catchphrase": "aaach-",
+  "internalId": "flg15"
+ },
+ {
+  "key": "RASHER",
+  "name": "Rasher",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Cranky",
+  "catchphrase": "swine",
+  "internalId": "pig02"
+ },
+ {
+  "key": "RAYMOND",
+  "name": "Raymond",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Smug",
+  "catchphrase": "crisp",
+  "internalId": "cat23"
+ },
+ {
+  "key": "RENEE",
+  "name": "Renée",
+  "gender": "Female",
+  "species": "Rhino",
+  "personality": "Sisterly",
+  "catchphrase": "yo yo yo",
+  "internalId": "rhn08",
+  "legacyKeys": [
+   "RENÉE"
+  ]
+ },
+ {
+  "key": "RENEIGH",
+  "name": "Reneigh",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Sisterly",
+  "catchphrase": "ayup, yup",
+  "internalId": "hrs16"
+ },
+ {
+  "key": "REX",
+  "name": "Rex",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Lazy",
+  "catchphrase": "cool cat",
+  "internalId": "lon02"
+ },
+ {
+  "key": "RHONDA",
+  "name": "Rhonda",
+  "gender": "Female",
+  "species": "Rhino",
+  "personality": "Normal",
+  "catchphrase": "bigfoot",
+  "internalId": "rhn01"
+ },
+ {
+  "key": "RIBBOT",
+  "name": "Ribbot",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Jock",
+  "catchphrase": "zzrrbbitt",
+  "internalId": "flg01"
+ },
+ {
+  "key": "RICKY",
+  "name": "Ricky",
+  "gender": "Male",
+  "species": "Squirrel",
+  "personality": "Cranky",
+  "catchphrase": "nutcase",
+  "internalId": "squ10"
+ },
+ {
+  "key": "RIZZO",
+  "name": "Rizzo",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Cranky",
+  "catchphrase": "squee",
+  "internalId": "mus09"
+ },
+ {
+  "key": "ROALD",
+  "name": "Roald",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Jock",
+  "catchphrase": "b-b-buddy",
+  "internalId": "pgn01"
+ },
+ {
+  "key": "ROBIN",
+  "name": "Robin",
+  "gender": "Female",
+  "species": "Bird",
+  "personality": "Snooty",
+  "catchphrase": "la-di-da",
+  "internalId": "brd01"
+ },
+ {
+  "key": "ROCCO",
+  "name": "Rocco",
+  "gender": "Male",
+  "species": "Hippo",
+  "personality": "Cranky",
+  "catchphrase": "hippie",
+  "internalId": "hip00"
+ },
+ {
+  "key": "ROCKET",
+  "name": "Rocket",
+  "gender": "Female",
+  "species": "Gorilla",
+  "personality": "Sisterly",
+  "catchphrase": "vroom",
+  "internalId": "gor09"
+ },
+ {
+  "key": "ROD",
+  "name": "Rod",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Jock",
+  "catchphrase": "ace",
+  "internalId": "mus05"
+ },
+ {
+  "key": "RODEO",
+  "name": "Rodeo",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Lazy",
+  "catchphrase": "chaps",
+  "internalId": "bul01"
+ },
+ {
+  "key": "RODNEY",
+  "name": "Rodney",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Smug",
+  "catchphrase": "le ham",
+  "internalId": "ham03"
+ },
+ {
+  "key": "ROLF",
+  "name": "Rolf",
+  "gender": "Male",
+  "species": "Tiger",
+  "personality": "Cranky",
+  "catchphrase": "grrrolf",
+  "internalId": "tig00"
+ },
+ {
+  "key": "ROONEY",
+  "name": "Rooney",
+  "gender": "Male",
+  "species": "Kangaroo",
+  "personality": "Cranky",
+  "catchphrase": "punches",
+  "internalId": "kgr09"
+ },
+ {
+  "key": "RORY",
+  "name": "Rory",
+  "gender": "Male",
+  "species": "Lion",
+  "personality": "Jock",
+  "catchphrase": "capital",
+  "internalId": "lon07"
+ },
+ {
+  "key": "ROSCOE",
+  "name": "Roscoe",
+  "gender": "Male",
+  "species": "Horse",
+  "personality": "Cranky",
+  "catchphrase": "nay",
+  "internalId": "hrs04"
+ },
+ {
+  "key": "ROSIE",
+  "name": "Rosie",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Peppy",
+  "catchphrase": "silly",
+  "internalId": "cat02"
+ },
+ {
+  "key": "ROWAN",
+  "name": "Rowan",
+  "gender": "Male",
+  "species": "Tiger",
+  "personality": "Jock",
+  "catchphrase": "mango",
+  "internalId": "tig01"
+ },
+ {
+  "key": "RUBY",
+  "name": "Ruby",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Peppy",
+  "catchphrase": "li'l ears",
+  "internalId": "rbt09"
+ },
+ {
+  "key": "RUDY",
+  "name": "Rudy",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Jock",
+  "catchphrase": "mush",
+  "internalId": "cat20"
+ },
+ {
+  "key": "SALLY",
+  "name": "Sally",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "nutmeg",
+  "internalId": "squ07"
+ },
+ {
+  "key": "SAMSON",
+  "name": "Samson",
+  "gender": "Male",
+  "species": "Mouse",
+  "personality": "Jock",
+  "catchphrase": "pipsqueak",
+  "internalId": "mus04"
+ },
+ {
+  "key": "SANDY",
+  "name": "Sandy",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Normal",
+  "catchphrase": "speedy",
+  "internalId": "ost02"
+ },
+ {
+  "key": "SAVANNAH",
+  "name": "Savannah",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Normal",
+  "catchphrase": "y'all",
+  "internalId": "hrs02"
+ },
+ {
+  "key": "SCOOT",
+  "name": "Scoot",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Jock",
+  "catchphrase": "zip zoom",
+  "internalId": "duk10"
+ },
+ {
+  "key": "SHARI",
+  "name": "Shari",
+  "gender": "Female",
+  "species": "Monkey",
+  "personality": "Sisterly",
+  "catchphrase": "cheeky",
+  "internalId": "mnk07"
+ },
+ {
+  "key": "SHELDON",
+  "name": "Sheldon",
+  "gender": "Male",
+  "species": "Squirrel",
+  "personality": "Jock",
+  "catchphrase": "cardio",
+  "internalId": "squ16"
+ },
+ {
+  "key": "SHEP",
+  "name": "Shep",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Smug",
+  "catchphrase": "baa baa baa",
+  "internalId": "dog18"
+ },
+ {
+  "key": "SHERB",
+  "name": "Sherb",
+  "gender": "Male",
+  "species": "Goat",
+  "personality": "Lazy",
+  "catchphrase": "bawwww",
+  "internalId": "goa09"
+ },
+ {
+  "key": "SIMON",
+  "name": "Simon",
+  "gender": "Male",
+  "species": "Monkey",
+  "personality": "Lazy",
+  "catchphrase": "zzzook",
+  "internalId": "mnk02"
+ },
+ {
+  "key": "SKYE",
+  "name": "Skye",
+  "gender": "Female",
+  "species": "Wolf",
+  "personality": "Normal",
+  "catchphrase": "airmail",
+  "internalId": "wol09"
+ },
+ {
+  "key": "SLY",
+  "name": "Sly",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Jock",
+  "catchphrase": "hoo-rah",
+  "internalId": "crd06"
+ },
+ {
+  "key": "SNAKE",
+  "name": "Snake",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Jock",
+  "catchphrase": "bunyip",
+  "internalId": "rbt03"
+ },
+ {
+  "key": "SNOOTY",
+  "name": "Snooty",
+  "gender": "Female",
+  "species": "Anteater",
+  "personality": "Snooty",
+  "catchphrase": "snifffff",
+  "internalId": "ant06"
+ },
+ {
+  "key": "SOLEIL",
+  "name": "Soleil",
+  "gender": "Female",
+  "species": "Hamster",
+  "personality": "Snooty",
+  "catchphrase": "tarnation",
+  "internalId": "ham04"
+ },
+ {
+  "key": "SPARRO",
+  "name": "Sparro",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "like whoa",
+  "internalId": "brd18"
+ },
+ {
+  "key": "SPIKE",
+  "name": "Spike",
+  "gender": "Male",
+  "species": "Rhino",
+  "personality": "Cranky",
+  "catchphrase": "punk",
+  "internalId": "rhn02"
+ },
+ {
+  "key": "CRACKLEPAL",
+  "name": "Crackle",
+  "gender": "Male",
+  "species": "Pig",
+  "personality": "Lazy",
+  "catchphrase": "snork",
+  "internalId": "pig05"
+ },
+ {
+  "key": "SPRINKLE",
+  "name": "Sprinkle",
+  "gender": "Female",
+  "species": "Penguin",
+  "personality": "Peppy",
+  "catchphrase": "frappe",
+  "internalId": "pgn14"
+ },
+ {
+  "key": "SPROCKET",
+  "name": "Sprocket",
+  "gender": "Male",
+  "species": "Ostrich",
+  "personality": "Jock",
+  "catchphrase": "zort",
+  "internalId": "ost03"
+ },
+ {
+  "key": "STATIC",
+  "name": "Static",
+  "gender": "Male",
+  "species": "Squirrel",
+  "personality": "Cranky",
+  "catchphrase": "krzzt",
+  "internalId": "squ08"
+ },
+ {
+  "key": "STELLA",
+  "name": "Stella",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Normal",
+  "catchphrase": "baa-dabing",
+  "internalId": "shp03"
+ },
+ {
+  "key": "STERLING",
+  "name": "Sterling",
+  "gender": "Male",
+  "species": "Eagle",
+  "personality": "Jock",
+  "catchphrase": "skraaaaw",
+  "internalId": "pbr07"
+ },
+ {
+  "key": "STINKY",
+  "name": "Stinky",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Jock",
+  "catchphrase": "GAHHHH",
+  "internalId": "cat13"
+ },
+ {
+  "key": "STITCHES",
+  "name": "Stitches",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Lazy",
+  "catchphrase": "stuffin'",
+  "internalId": "cbr05"
+ },
+ {
+  "key": "STU",
+  "name": "Stu",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Lazy",
+  "catchphrase": "moo-dude",
+  "internalId": "bul03"
+ },
+ {
+  "key": "SYDNEY",
+  "name": "Sydney",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Normal",
+  "catchphrase": "sunshine",
+  "internalId": "kal03"
+ },
+ {
+  "key": "SYLVANA",
+  "name": "Sylvana",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "hubbub",
+  "internalId": "squ14"
+ },
+ {
+  "key": "SYLVIA",
+  "name": "Sylvia",
+  "gender": "Female",
+  "species": "Kangaroo",
+  "personality": "Sisterly",
+  "catchphrase": "boing",
+  "internalId": "kgr06"
+ },
+ {
+  "key": "TABBY",
+  "name": "Tabby",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Peppy",
+  "catchphrase": "me-WOW",
+  "internalId": "cat12"
+ },
+ {
+  "key": "TAD",
+  "name": "Tad",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Jock",
+  "catchphrase": "sluuuurp",
+  "internalId": "flg09"
+ },
+ {
+  "key": "TAMMI",
+  "name": "Tammi",
+  "gender": "Female",
+  "species": "Monkey",
+  "personality": "Peppy",
+  "catchphrase": "chimpy",
+  "internalId": "mnk03"
+ },
+ {
+  "key": "TAMMY",
+  "name": "Tammy",
+  "gender": "Female",
+  "species": "Cub",
+  "personality": "Sisterly",
+  "catchphrase": "ya heard",
+  "internalId": "cbr17"
+ },
+ {
+  "key": "TANGY",
+  "name": "Tangy",
+  "gender": "Female",
+  "species": "Cat",
+  "personality": "Peppy",
+  "catchphrase": "reeeeOWR",
+  "internalId": "cat05"
+ },
+ {
+  "key": "TANK",
+  "name": "Tank",
+  "gender": "Male",
+  "species": "Rhino",
+  "personality": "Jock",
+  "catchphrase": "kerPOW",
+  "internalId": "rhn00"
+ },
+ {
+  "key": "TASHA",
+  "name": "Tasha",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Snooty",
+  "catchphrase": "nice nice",
+  "internalId": "squ13"
+ },
+ {
+  "key": "TBONE",
+  "name": "T-Bone",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Cranky",
+  "catchphrase": "moocher",
+  "internalId": "bul05"
+ },
+ {
+  "key": "TEDDY",
+  "name": "Teddy",
+  "gender": "Male",
+  "species": "Bear",
+  "personality": "Jock",
+  "catchphrase": "grooof",
+  "internalId": "bea00"
+ },
+ {
+  "key": "TEX",
+  "name": "Tex",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Smug",
+  "catchphrase": "picante",
+  "internalId": "pgn12"
+ },
+ {
+  "key": "TIA",
+  "name": "Tia",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Normal",
+  "catchphrase": "teacup",
+  "internalId": "elp10"
+ },
+ {
+  "key": "TIFFANY",
+  "name": "Tiffany",
+  "gender": "Female",
+  "species": "Rabbit",
+  "personality": "Snooty",
+  "catchphrase": "bun bun",
+  "internalId": "rbt07"
+ },
+ {
+  "key": "TIMBRA",
+  "name": "Timbra",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Snooty",
+  "catchphrase": "pine nut",
+  "internalId": "shp10"
+ },
+ {
+  "key": "TIPPER",
+  "name": "Tipper",
+  "gender": "Female",
+  "species": "Cow",
+  "personality": "Snooty",
+  "catchphrase": "pushy",
+  "internalId": "cow01"
+ },
+ {
+  "key": "TOM",
+  "name": "Tom",
+  "gender": "Male",
+  "species": "Cat",
+  "personality": "Cranky",
+  "catchphrase": "me-YOWZA",
+  "internalId": "cat15"
+ },
+ {
+  "key": "TRUFFLES",
+  "name": "Truffles",
+  "gender": "Female",
+  "species": "Pig",
+  "personality": "Peppy",
+  "catchphrase": "snoutie",
+  "internalId": "pig01"
+ },
+ {
+  "key": "TUCKER",
+  "name": "Tucker",
+  "gender": "Male",
+  "species": "Elephant",
+  "personality": "Lazy",
+  "catchphrase": "fuzzers",
+  "internalId": "elp09"
+ },
+ {
+  "key": "TUTU",
+  "name": "Tutu",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Peppy",
+  "catchphrase": "twinkles",
+  "internalId": "bea07"
+ },
+ {
+  "key": "TWIGGY",
+  "name": "Twiggy",
+  "gender": "Female",
+  "species": "Bird",
+  "personality": "Peppy",
+  "catchphrase": "cheepers",
+  "internalId": "brd03"
+ },
+ {
+  "key": "TYBALT",
+  "name": "Tybalt",
+  "gender": "Male",
+  "species": "Tiger",
+  "personality": "Jock",
+  "catchphrase": "grrRAH",
+  "internalId": "tig02"
+ },
+ {
+  "key": "URSALA",
+  "name": "Ursala",
+  "gender": "Female",
+  "species": "Bear",
+  "personality": "Sisterly",
+  "catchphrase": "grooomph",
+  "internalId": "bea08"
+ },
+ {
+  "key": "VELMA",
+  "name": "Velma",
+  "gender": "Female",
+  "species": "Goat",
+  "personality": "Snooty",
+  "catchphrase": "blih",
+  "internalId": "goa06"
+ },
+ {
+  "key": "VESTA",
+  "name": "Vesta",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Normal",
+  "catchphrase": "baaaffo",
+  "internalId": "shp00"
+ },
+ {
+  "key": "VIC",
+  "name": "Vic",
+  "gender": "Male",
+  "species": "Bull",
+  "personality": "Cranky",
+  "catchphrase": "cud",
+  "internalId": "bul08"
+ },
+ {
+  "key": "VICTORIA",
+  "name": "Victoria",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Peppy",
+  "catchphrase": "sugar cube",
+  "internalId": "hrs01"
+ },
+ {
+  "key": "VIOLET",
+  "name": "Violet",
+  "gender": "Female",
+  "species": "Gorilla",
+  "personality": "Snooty",
+  "catchphrase": "sweetie",
+  "internalId": "gor07"
+ },
+ {
+  "key": "VIVIAN",
+  "name": "Vivian",
+  "gender": "Female",
+  "species": "Wolf",
+  "personality": "Snooty",
+  "catchphrase": "piffle",
+  "internalId": "wol08"
+ },
+ {
+  "key": "VLADIMIR",
+  "name": "Vladimir",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Cranky",
+  "catchphrase": "nyet",
+  "internalId": "cbr06"
+ },
+ {
+  "key": "WADE",
+  "name": "Wade",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Lazy",
+  "catchphrase": "so it goes",
+  "internalId": "pgn09"
+ },
+ {
+  "key": "WALKER",
+  "name": "Walker",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Lazy",
+  "catchphrase": "wuh",
+  "internalId": "dog06"
+ },
+ {
+  "key": "WALT",
+  "name": "Walt",
+  "gender": "Male",
+  "species": "Kangaroo",
+  "personality": "Cranky",
+  "catchphrase": "pockets",
+  "internalId": "kgr08"
+ },
+ {
+  "key": "WART_JR",
+  "name": "Wart Jr.",
+  "gender": "Male",
+  "species": "Frog",
+  "personality": "Cranky",
+  "catchphrase": "grr-ribbit",
+  "internalId": "flg05"
+ },
+ {
+  "key": "WEBER",
+  "name": "Weber",
+  "gender": "Male",
+  "species": "Duck",
+  "personality": "Lazy",
+  "catchphrase": "quaa",
+  "internalId": "duk11"
+ },
+ {
+  "key": "WENDY",
+  "name": "Wendy",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Peppy",
+  "catchphrase": "lambkins",
+  "internalId": "shp09"
+ },
+ {
+  "key": "WHITNEY",
+  "name": "Whitney",
+  "gender": "Female",
+  "species": "Wolf",
+  "personality": "Snooty",
+  "catchphrase": "snappy",
+  "internalId": "wol03"
+ },
+ {
+  "key": "WILLOW",
+  "name": "Willow",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Snooty",
+  "catchphrase": "bo peep",
+  "internalId": "shp07"
+ },
+ {
+  "key": "WINNIE",
+  "name": "Winnie",
+  "gender": "Female",
+  "species": "Horse",
+  "personality": "Peppy",
+  "catchphrase": "hay-OK",
+  "internalId": "hrs05"
+ },
+ {
+  "key": "WOLFGANG",
+  "name": "Wolfgang",
+  "gender": "Male",
+  "species": "Wolf",
+  "personality": "Cranky",
+  "catchphrase": "snarrrl",
+  "internalId": "wol02"
+ },
+ {
+  "key": "YUKA",
+  "name": "Yuka",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Snooty",
+  "catchphrase": "tsk tsk",
+  "internalId": "kal00"
+ },
+ {
+  "key": "ZELL",
+  "name": "Zell",
+  "gender": "Male",
+  "species": "Deer",
+  "personality": "Smug",
+  "catchphrase": "pronk",
+  "internalId": "der02"
+ },
+ {
+  "key": "ZUCKER",
+  "name": "Zucker",
+  "gender": "Male",
+  "species": "Octopus",
+  "personality": "Lazy",
+  "catchphrase": "bloop",
+  "internalId": "ocp02"
+ },
+ {
+  "key": "RILLA",
+  "name": "Rilla",
+  "gender": "Female",
+  "species": "Gorilla",
+  "personality": "Peppy",
+  "catchphrase": "hello",
+  "internalId": "gor11"
+ },
+ {
+  "key": "MARTY",
+  "name": "Marty",
+  "gender": "Male",
+  "species": "Cub",
+  "personality": "Lazy",
+  "catchphrase": "pompom",
+  "internalId": "cbr18"
+ },
+ {
+  "key": "ETOILE",
+  "name": "Etoile",
+  "gender": "Female",
+  "species": "Sheep",
+  "personality": "Normal",
+  "catchphrase": "fuzzy",
+  "internalId": "shp14"
+ },
+ {
+  "key": "CHAI",
+  "name": "Chai",
+  "gender": "Female",
+  "species": "Elephant",
+  "personality": "Peppy",
+  "catchphrase": "flap flap",
+  "internalId": "elp11"
+ },
+ {
+  "key": "CHELSEA",
+  "name": "Chelsea",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Normal",
+  "catchphrase": "pound cake",
+  "internalId": "der10"
+ },
+ {
+  "key": "TOBY",
+  "name": "Toby",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Smug",
+  "catchphrase": "ribbit",
+  "internalId": "rbt20"
+ },
+ {
+  "key": "SASHA",
+  "name": "Sasha",
+  "gender": "Male",
+  "species": "Rabbit",
+  "personality": "Lazy",
+  "catchphrase": "hoppity",
+  "internalId": "rbt21"
+ },
+ {
+  "key": "IONE",
+  "name": "Ione",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "gleam",
+  "internalId": "squ21"
+ },
+ {
+  "key": "TIANSHENG",
+  "name": "Tiansheng",
+  "gender": "Male",
+  "species": "Monkey",
+  "personality": "Jock",
+  "catchphrase": "wuwu",
+  "internalId": "mnk09"
+ },
+ {
+  "key": "SHINO",
+  "name": "Shino",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Peppy",
+  "catchphrase": "okaaay",
+  "internalId": "der11"
+ },
+ {
+  "key": "MARLO",
+  "name": "Marlo",
+  "gender": "Male",
+  "species": "Hamster",
+  "personality": "Cranky",
+  "catchphrase": "gabeesh",
+  "internalId": "ham09"
+ },
+ {
+  "key": "PETRI",
+  "name": "Petri",
+  "gender": "Female",
+  "species": "Mouse",
+  "personality": "Snooty",
+  "catchphrase": "mmmhmm",
+  "internalId": "mus19"
+ },
+ {
+  "key": "CEPHALOBOT",
+  "name": "Cephalobot",
+  "gender": "Male",
+  "species": "Octopus",
+  "personality": "Smug",
+  "catchphrase": "donk donk",
+  "internalId": "ocp04"
+ },
+ {
+  "key": "QUINN",
+  "name": "Quinn",
+  "gender": "Female",
+  "species": "Eagle",
+  "personality": "Sisterly",
+  "catchphrase": "proper",
+  "internalId": "pbr10"
+ },
+ {
+  "key": "CHABWICK",
+  "name": "Chabwick",
+  "gender": "Male",
+  "species": "Penguin",
+  "personality": "Lazy",
+  "catchphrase": "blargh",
+  "internalId": "pgn07"
+ },
+ {
+  "key": "ZOE",
+  "name": "Zoe",
+  "gender": "Female",
+  "species": "Anteater",
+  "personality": "Normal",
+  "catchphrase": "whiiifff",
+  "internalId": "ant05"
+ },
+ {
+  "key": "ACE",
+  "name": "Ace",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "ace",
+  "internalId": "brd09"
+ },
+ {
+  "key": "RIO",
+  "name": "Rio",
+  "gender": "Female",
+  "species": "Ostrich",
+  "personality": "Peppy",
+  "catchphrase": "li'l chick",
+  "internalId": "ost04"
+ },
+ {
+  "key": "FRETT",
+  "name": "Frett",
+  "gender": "Male",
+  "species": "Dog",
+  "personality": "Cranky",
+  "catchphrase": "geeze",
+  "internalId": "dog11"
+ },
+ {
+  "key": "AZALEA",
+  "name": "Azalea",
+  "gender": "Female",
+  "species": "Rhino",
+  "personality": "Snooty",
+  "catchphrase": "merci",
+  "internalId": "rhn05"
+ },
+ {
+  "key": "ROSWELL",
+  "name": "Roswell",
+  "gender": "Male",
+  "species": "Alligator",
+  "personality": "Smug",
+  "catchphrase": "spaaace",
+  "internalId": "crd05"
+ },
+ {
+  "key": "FAITH",
+  "name": "Faith",
+  "gender": "Female",
+  "species": "Koala",
+  "personality": "Sisterly",
+  "catchphrase": "aloha",
+  "internalId": "kal07"
+ }
+]

@@ -1,0 +1,70 @@
+# Villager Haven bot suite: one shared Postgres server, one database per bot.
+#
+#   cp .env.example .env            # then fill in secrets
+#   docker compose up -d --build    # run from this directory
+#
+# Adding another bot: add its service below (build context pointing at its repo), append its database name to
+# BOT_DATABASES, add <NAME>_DB_PASSWORD, then provision its database on the running server:
+#   docker compose exec postgres bash /docker-entrypoint-initdb.d/10-provision-bots.sh
+
+name: vh-bots
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      BOT_DATABASES: villager_bot
+      VILLAGER_BOT_DB_PASSWORD: ${VILLAGER_BOT_DB_PASSWORD:?set VILLAGER_BOT_DB_PASSWORD in .env}
+    volumes:
+      # Postgres 18+ images keep data under a version-specific subdirectory of /var/lib/postgresql.
+      - postgres-data:/var/lib/postgresql
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # Checks TCP on purpose: the temporary server used during first-time init only listens on the socket,
+      # so bots don't start until init scripts have finished.
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [bots]
+    # No published ports: only containers on the "bots" network can reach it. compose.dev.yaml publishes it on localhost.
+
+  villager-bot:
+    build:
+      context: ..
+      target: bot
+    image: vh-bots/villager-bot:latest
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      Discord__Token: ${VILLAGER_BOT_DISCORD_TOKEN:?set VILLAGER_BOT_DISCORD_TOKEN in .env}
+      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD}
+    networks: [bots]
+
+  # One-off legacy import (docs/data-migration.md §5). Dry run:   docker compose run --rm villager-bot-migration
+  #                                                     Import:    docker compose run --rm villager-bot-migration --apply
+  villager-bot-migration:
+    build:
+      context: ..
+      target: migration
+    image: vh-bots/villager-bot-migration:latest
+    profiles: [tools]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__VillagerBot: Host=postgres;Database=villager_bot;Username=villager_bot;Password=${VILLAGER_BOT_DB_PASSWORD}
+    volumes:
+      - ../data-export:/data-export:ro
+    networks: [bots]
+
+volumes:
+  postgres-data:
+
+networks:
+  bots:

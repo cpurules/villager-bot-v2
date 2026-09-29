@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/VillagerBot.Bot/VillagerBot.Bot.csproj" />
+    <Project Path="src/VillagerBot.Core/VillagerBot.Core.csproj" />
+    <Project Path="src/VillagerBot.Data/VillagerBot.Data.csproj" />
+    <Project Path="src/VillagerBot.Migration/VillagerBot.Migration.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/VillagerBot.Tests/VillagerBot.Tests.csproj" />
+  </Folder>
+</Solution>

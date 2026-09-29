@@ -1,0 +1,20 @@
+# Legacy data exports contain member IDs — never commit
+data-export/
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Local databases and secrets
+*.db
+*.db-shm
+*.db-wal
+appsettings.*.local.json
+
+# Deployment secrets
+deploy/.env
+
+# Test output
+TestResults/

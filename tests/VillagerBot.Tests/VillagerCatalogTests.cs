@@ -1,0 +1,48 @@
+using VillagerBot.Core.Villagers;
+
+namespace VillagerBot.Tests;
+
+public class VillagerCatalogTests
+{
+    private static readonly VillagerCatalog Catalog = VillagerCatalog.LoadEmbedded();
+
+    [Fact]
+    public void LoadsTheFullLegacyList()
+    {
+        Assert.Equal(413, Catalog.All.Count);
+        Assert.All(Catalog.All, v => Assert.False(string.IsNullOrEmpty(v.InternalId)));
+    }
+
+    [Theory]
+    [InlineData("AGENT_S", "Agent S")]
+    [InlineData("RENEE", "Renée")]
+    [InlineData("RENÉE", "Renée")] // legacy key as stored in ArangoDB
+    [InlineData("raymond", "Raymond")]
+    public void FindsByKeyIncludingLegacyKeys(string key, string expectedName)
+        => Assert.Equal(expectedName, Catalog.FindByKey(key)?.Name);
+
+    [Theory]
+    [InlineData("agent s", "Agent S")]
+    [InlineData("AgentS", "Agent S")]
+    [InlineData("renee", "Renée")]
+    [InlineData("  Raymond ", "Raymond")]
+    public void FindsByNameIgnoringCaseAccentsAndPunctuation(string input, string expectedName)
+        => Assert.Equal(expectedName, Catalog.FindByName(input)?.Name);
+
+    [Fact]
+    public void FindByNameReturnsNullForPartialNames() => Assert.Null(Catalog.FindByName("Raymon"));
+
+    [Fact]
+    public void SearchRanksPrefixMatchesFirst()
+    {
+        var results = Catalog.Search("ray", 5);
+        Assert.Equal("Raymond", results[0].Name);
+    }
+
+    [Fact]
+    public void SearchSuggestsCloseMisspellings()
+        => Assert.Contains(Catalog.Search("Raymnod", 5), v => v.Name == "Raymond");
+
+    [Fact]
+    public void SearchRespectsLimit() => Assert.Equal(25, Catalog.Search("", 25).Count);
+}

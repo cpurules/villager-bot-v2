@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VillagerBot.Core\VillagerBot.Core.csproj" />
+    <ProjectReference Include="..\VillagerBot.Data\VillagerBot.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="VillagerBot.Tests" />
+  </ItemGroup>
+
+</Project>

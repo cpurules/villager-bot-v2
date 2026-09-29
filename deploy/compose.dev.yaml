@@ -1,0 +1,12 @@
+# Local development overlay: publishes Postgres on localhost so a bot run from the IDE can reach it.
+#
+#   docker compose -f compose.yaml -f compose.dev.yaml up -d postgres
+#
+# Then run the bot from the IDE with (user secrets or environment):
+#   ConnectionStrings:VillagerBot = Host=localhost;Database=villager_bot;Username=villager_bot;Password=<VILLAGER_BOT_DB_PASSWORD>
+#   Discord:Token                 = <test bot token>
+
+services:
+  postgres:
+    ports:
+      - "127.0.0.1:5432:5432"
