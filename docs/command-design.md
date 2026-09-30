@@ -135,6 +135,7 @@ treat the villager or group as an *exclusion* filter).
 **Rule (decided):** bulk pulls never include Sanrio villagers unless a Sanrio villager was explicitly chosen (e.g.
 `/pull villager Marty 5`). The Sanrio list comes from the `VillagerGroups:Sanrio` config.
 
+`/pull` only works in the requests channel, like `/queue list` (decided 2026-09-29); its replies are still private.
 The flow for each request is in §5. The hunter's ephemeral reply lists the channels created, plus villager names and
 **internal game IDs** (e.g. `brd06`). A DM failure is reported here (B6).
 

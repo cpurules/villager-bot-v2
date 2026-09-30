@@ -22,6 +22,9 @@ public sealed class VillagerBotOptions
 
     public PanelOptions Panel { get; set; } = new();
 
+    /// <summary>The bot's status line, e.g. "Playing Villager Pairing". An empty <c>Text</c> shows no activity.</summary>
+    public ActivityOptions Activity { get; set; } = new();
+
     /// <summary>Named villager groups (by catalogue key), e.g. <c>Sanrio</c>.</summary>
     public Dictionary<string, List<string>> VillagerGroups { get; set; } = [];
 
@@ -74,6 +77,14 @@ public sealed class VillagerBotOptions
         public string Title { get; set; } = "Villager requests";
         public string Description { get; set; } = "";
         public string VillagerListUrl { get; set; } = "https://animalcrossing.fandom.com/wiki/Villager_list_(New_Horizons)";
+    }
+
+    public sealed class ActivityOptions
+    {
+        /// <summary>Playing, Watching, Listening, Competing, or Custom (free-text status).</summary>
+        public NetCord.Gateway.UserActivityType Type { get; set; } = NetCord.Gateway.UserActivityType.Playing;
+
+        public string Text { get; set; } = "Villager Pairing";
     }
 
     public sealed class JobOptions

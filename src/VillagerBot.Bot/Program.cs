@@ -65,7 +65,19 @@ builder.Services
 // Never add MessageContent or other privileged intents (see CLAUDE.md).
 // Failed preconditions and errors are reported privately to the user who clicked or typed.
 builder.Services
-    .AddDiscordGateway(options => options.Intents = GatewayIntents.Guilds)
+    .AddDiscordGateway((options, services) =>
+    {
+        options.Intents = GatewayIntents.Guilds;
+
+        var activity = services.GetRequiredService<IOptions<VillagerBotOptions>>().Value.Activity;
+        options.Presence = new PresenceProperties(UserStatusType.Online)
+        {
+            Activities = string.IsNullOrWhiteSpace(activity.Text)
+                ? []
+                // Custom statuses show their text from State; the other types show Name.
+                : [new UserActivityProperties(activity.Text, activity.Type) { State = activity.Type == UserActivityType.Custom ? activity.Text : null }],
+        };
+    })
     .AddApplicationCommands(options => options.ResultHandler = ApplicationCommandResultHandler<ApplicationCommandContext>.Ephemeral)
     .AddComponentInteractions<ButtonInteraction, ButtonInteractionContext>(options =>
         options.ResultHandler = ComponentInteractionResultHandler<ButtonInteractionContext>.Ephemeral)

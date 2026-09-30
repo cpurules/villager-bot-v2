@@ -16,7 +16,8 @@ namespace VillagerBot.Bot.Staff;
 /// <summary><c>/queue list</c> (command-design §4.1): public, requests channel only.</summary>
 [SlashCommand("queue", "Browse the villager request queue", DefaultGuildPermissions = (Permissions)0, Contexts = [InteractionContextType.Guild])]
 [RequireAccess<ApplicationCommandContext>(AccessLevel.StaffReadOnly)]
-public sealed class QueueModule(VillagerBotDbContext db, VillagerGroups groups, StaffViews views, IOptions<VillagerBotOptions> options)
+[RequireRequestsChannel<ApplicationCommandContext>]
+public sealed class QueueModule(VillagerBotDbContext db, VillagerGroups groups, StaffViews views)
     : ApplicationCommandModule<ApplicationCommandContext>
 {
     [SubSlashCommand("list", "Post the next available requests in the requests channel")]
@@ -27,13 +28,6 @@ public sealed class QueueModule(VillagerBotDbContext db, VillagerGroups groups, 
         [SlashCommandParameter(Description = "Hide that villager or group instead")]
         bool exclude = false)
     {
-        var requestsChannel = options.Value.Channels.Requests;
-        if (Context.Channel.Id != requestsChannel)
-        {
-            await RespondAsync(new View($"Use this in <#{requestsChannel}>.").ToEphemeralReply());
-            return;
-        }
-
         VillagerFilter? filter = null;
         if (villager is not null && (filter = groups.Resolve(villager, exclude)) is null)
         {
@@ -51,10 +45,11 @@ public sealed class QueueModule(VillagerBotDbContext db, VillagerGroups groups, 
     }
 }
 
-/// <summary><c>/pull user|villager|next</c> (command-design §4.2).</summary>
+/// <summary><c>/pull user|villager|next</c> (command-design §4.2): requests channel only, private replies.</summary>
 [SlashCommand("pull", "Pull villager requests and open their channels", DefaultGuildPermissions = (Permissions)0,
     Contexts = [InteractionContextType.Guild])]
 [RequireAccess<ApplicationCommandContext>(AccessLevel.Hunter)]
+[RequireRequestsChannel<ApplicationCommandContext>]
 public sealed class PullModule(PullService pulls, PullReporter reporter, VillagerGroups groups, VillagerCatalog catalog,
     IOptions<VillagerBotOptions> options) : ApplicationCommandModule<ApplicationCommandContext>
 {
