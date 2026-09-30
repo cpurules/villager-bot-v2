@@ -43,6 +43,29 @@ public class VillagerCatalogTests
     public void SearchSuggestsCloseMisspellings()
         => Assert.Contains(Catalog.Search("Raymnod", 5), v => v.Name == "Raymond");
 
+    [Theory]
+    [InlineData("MARTY")]
+    [InlineData("TOBY")]
+    [InlineData("ETOILE")]
+    [InlineData("CHELSEA")]
+    [InlineData("CHAI")]
+    [InlineData("RILLA")]
+    public void SanrioVillagersCannotBeRequested(string key) => Assert.False(Catalog.FindByKey(key)!.Requestable);
+
+    [Fact]
+    public void OtherVillagersCanBeRequested()
+    {
+        Assert.True(Catalog.FindByKey("RAYMOND")!.Requestable);
+        Assert.Equal(413 - 6, Catalog.All.Count(v => v.Requestable));
+    }
+
+    [Fact]
+    public void RequestableSearchLeavesOutBlockedVillagers()
+    {
+        Assert.Contains(Catalog.Search("Mart", 5), v => v.Name == "Marty");
+        Assert.DoesNotContain(Catalog.Search("Mart", 5, requestableOnly: true), v => v.Name == "Marty");
+    }
+
     [Fact]
     public void SearchRespectsLimit() => Assert.Equal(25, Catalog.Search("", 25).Count);
 }

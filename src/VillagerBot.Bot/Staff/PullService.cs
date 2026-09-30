@@ -18,6 +18,9 @@ public enum PullStatus
 
     /// <summary>The member left the server; their request was archived as Removed.</summary>
     MemberLeft,
+
+    /// <summary>The request is for a villager that can't currently be distributed (e.g. Sanrio).</summary>
+    NotRequestable,
     Failed,
 }
 
@@ -85,6 +88,8 @@ public sealed class PullService(
             return new PullResult(userId, PullStatus.NotFound);
         if (request.PulledAt is not null)
             return new PullResult(userId, PullStatus.AlreadyPulled, request.VillagerKey, request.ChannelId, OtherHunterId: request.HunterId);
+        if (catalog.FindByKey(request.VillagerKey) is not { Requestable: true })
+            return new PullResult(userId, PullStatus.NotRequestable, request.VillagerKey);
 
         if (!await access.IsMemberAsync(userId))
         {

@@ -81,6 +81,12 @@ public sealed class PullModule(PullService pulls, PullReporter reporter, Village
             return;
         }
 
+        if (!target.Requestable)
+        {
+            await RespondAsync(new View($"**{target.Name}** can't be distributed right now, so their requests can't be pulled.").ToEphemeralReply());
+            return;
+        }
+
         await RespondAsync(InteractionCallback.DeferredMessage(MessageFlags.Ephemeral));
         var results = await pulls.PullNextAsync(Context.User.Id, Clamp(count), q => q.Where(r => r.VillagerKey == target.Key));
         await FinishAsync(results, $"There are no available requests for **{target.Name}**.");

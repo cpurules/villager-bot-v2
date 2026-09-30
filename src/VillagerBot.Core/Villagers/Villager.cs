@@ -1,6 +1,10 @@
 namespace VillagerBot.Core.Villagers;
 
-/// <summary>A villager from the catalogue. <see cref="Key"/> is the stable identifier stored in the database.</summary>
+/// <summary>
+/// A villager from the catalogue. <see cref="Key"/> is the stable identifier stored in the database.
+/// <see cref="Requestable"/> is false for villagers that can't currently be distributed (e.g. the amiibo-only Sanrio
+/// villagers): members can't request them or mark such a request available.
+/// </summary>
 public sealed record Villager(
     string Key,
     string Name,
@@ -9,4 +13,5 @@ public sealed record Villager(
     string Personality,
     string Catchphrase,
     string InternalId,
-    IReadOnlyList<string> LegacyKeys);
+    IReadOnlyList<string> LegacyKeys,
+    bool Requestable = true);

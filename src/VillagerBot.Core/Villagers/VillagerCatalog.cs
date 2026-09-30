@@ -39,7 +39,8 @@ public sealed class VillagerCatalog
             ?? throw new InvalidOperationException("Villager catalogue is empty.");
 
         return new VillagerCatalog(villagers.Select(v => new Villager(
-            v.Key, v.Name, v.Gender, v.Species, v.Personality, v.Catchphrase, v.InternalId, v.LegacyKeys ?? [])));
+            v.Key, v.Name, v.Gender, v.Species, v.Personality, v.Catchphrase, v.InternalId, v.LegacyKeys ?? [],
+            v.Requestable ?? true)));
     }
 
     /// <summary>Finds a villager by its stored key, including legacy keys (e.g. <c>RENÉE</c>).</summary>
@@ -52,13 +53,14 @@ public sealed class VillagerCatalog
     /// Ranked suggestions for partial or misspelled input: prefix matches, then substring matches,
     /// then the closest names by edit distance.
     /// </summary>
-    public IReadOnlyList<Villager> Search(string input, int limit)
+    public IReadOnlyList<Villager> Search(string input, int limit, bool requestableOnly = false)
     {
+        var candidates = requestableOnly ? All.Where(v => v.Requestable) : All;
         var query = Fold(input);
         if (query.Length == 0)
-            return All.Take(limit).ToList();
+            return candidates.Take(limit).ToList();
 
-        return All
+        return candidates
             .Select(v => (Villager: v, Name: Fold(v.Name)))
             .Select(x => (x.Villager, Rank: x.Name.StartsWith(query, StringComparison.Ordinal) ? 0
                                           : x.Name.Contains(query, StringComparison.Ordinal) ? 1
@@ -120,5 +122,6 @@ public sealed class VillagerCatalog
         string Personality,
         string Catchphrase,
         string InternalId,
-        List<string>? LegacyKeys);
+        List<string>? LegacyKeys,
+        bool? Requestable);
 }

@@ -119,6 +119,8 @@ public sealed class StaffViews(VillagerCatalog catalog)
                     ? $"<@{r.UserId}>'s request was already pulled by <@{other}>{(r.ChannelId is { } c ? $" (<#{c}>)" : "")}."
                     : $"<@{r.UserId}>'s request was already pulled.",
                 PullStatus.NotFound => $"<@{r.UserId}> doesn't have an open request.",
+                PullStatus.NotRequestable =>
+                    $"<@{r.UserId}>'s request is for **{Name(r.VillagerKey!)}**, who can't be distributed right now, so it wasn't pulled.",
                 PullStatus.MemberLeft => $"<@{r.UserId}> has left the server, so their request for **{Name(r.VillagerKey!)}** was removed.",
                 PullStatus.Failed => $"❌ Couldn't pull <@{r.UserId}>'s request: {r.Error}",
                 _ => null,

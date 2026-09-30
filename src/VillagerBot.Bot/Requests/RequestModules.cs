@@ -15,7 +15,7 @@ public sealed class RequestCommandModule(RequestFlow flow) : ApplicationCommandM
     [RequireAccess<ApplicationCommandContext>(AccessLevel.Villager)]
     public async Task RequestAsync(
         [SlashCommandParameter(Description = "The villager you'd like (leave empty to see your current request)",
-            AutocompleteProviderType = typeof(VillagerAutocompleteProvider), MaxLength = 40)]
+            AutocompleteProviderType = typeof(RequestableVillagerAutocompleteProvider), MaxLength = 40)]
         string? villager = null)
     {
         var owner = Context.User.Id;
@@ -107,6 +107,8 @@ public sealed class RequestButtonModule(RequestFlow flow, RequestService request
                 ? "You're now marked **available**. Keep an eye on Discord, you'll be pinged when a Haven Hunter picks you!"
                 : "You're now marked **not available**. You keep your place in the queue.",
             RequestChange.Pulled => "Your request has already been picked up by a Haven Hunter.",
+            RequestChange.NotRequestable => "This villager can't be requested right now, so you can't be marked available. " +
+                                            "Change villager to keep your place in the queue.",
             _ => null,
         };
         await RespondAsync((await flow.CardAsync(owner, notice)).ToUpdate());

@@ -97,6 +97,7 @@ static void PrintReport(ImportReport report, DateTimeOffset now, DateTimeOffset 
     Console.WriteLine($"  kept in the queue:         {report.KeptActive,6}  ({report.KeptAvailable} available)");
     Console.WriteLine($"  archived as stale:         {report.ArchivedAsStale,6}");
     Console.WriteLine($"  archived as stale pulls:   {report.ArchivedAsStalePull,6}");
+    Console.WriteLine($"  set not available (villager can't be requested): {report.MadeUnavailable}");
     Console.WriteLine($"  _rev undecodable (used timeStamp): {report.RevFallbacks}");
     Console.WriteLine($"Legacy archive rows read:    {report.ArchiveRowsRead,6}");
     Console.WriteLine("Archive after import, by outcome:");

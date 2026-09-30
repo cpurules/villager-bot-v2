@@ -71,5 +71,6 @@ public class StaffTests
         Assert.Contains("Couldn't DM <@1>", summary);
         Assert.Contains("<@2> has left the server", summary);
         Assert.Equal("nothing", views.PullSummary([], "nothing"));
+        Assert.Contains("can't be distributed", views.PullSummary([new PullResult(3, PullStatus.NotRequestable, "MARTY")], "nothing"));
     }
 }

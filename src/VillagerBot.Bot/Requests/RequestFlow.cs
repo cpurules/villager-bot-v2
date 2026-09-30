@@ -26,13 +26,16 @@ public sealed class RequestFlow(RequestService requests, RequestViews views, Vil
     {
         var villager = catalog.FindByKey(input.Trim()) ?? catalog.FindByName(input);
         return villager is null
-            ? views.NotFound(owner, input.Trim(), catalog.Search(input, SuggestionCount))
+            ? views.NotFound(owner, input.Trim(), catalog.Search(input, SuggestionCount, requestableOnly: true))
             : await ProposeAsync(owner, villager);
     }
 
     /// <summary>Asks to create, or to change an existing request to, the chosen villager.</summary>
     public async Task<View> ProposeAsync(ulong owner, Villager villager)
     {
+        if (!villager.Requestable)
+            return views.NotRequestable(owner, villager);
+
         if (await requests.GetSnapshotAsync(owner) is not { } snapshot)
             return views.ConfirmCreate(owner, villager);
 
@@ -49,6 +52,10 @@ public sealed class RequestFlow(RequestService requests, RequestViews views, Vil
     {
         if (catalog.FindByKey(villagerKey) is not { } villager)
             return RequestViews.Message("That villager couldn't be found. Please try again.");
+
+        // Re-checked here too: the confirm button may predate the villager being blocked.
+        if (!villager.Requestable)
+            return views.NotRequestable(owner, villager);
 
         if (await requests.TryCreateAsync(owner, villager.Key))
         {

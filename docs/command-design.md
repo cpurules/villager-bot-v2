@@ -75,6 +75,20 @@ One command for everything. The `villager` option has type-ahead suggestions dra
 - The modal must be the command's **first** response (within 3 s). The "do they already have a request?" lookup is a
   single indexed query, well within that.
 
+### 3.2a Villagers that can't be requested (decided 2026-09-29)
+
+Villagers marked `"requestable": false` in `villagers.json` (currently the six Sanrio villagers, which are amiibo-only
+and can no longer be distributed):
+- don't appear in `/request` type-ahead or "Did you mean…" suggestions, and choosing one by name explains why and offers
+  to pick another (`VillagerBot:NotRequestableReason`);
+- can't be marked **available**: the card disables the button and explains, and members can change villager (keeping
+  their place) or leave;
+- are set to not available by the import, and again at every bot startup, so blocking a villager later also applies to
+  existing requests.
+
+**They can't be pulled** (decided 2026-09-29): `/pull villager <Sanrio>` refuses up front, and `/pull user` or the queue
+list menu tells the hunter the request is for a villager who can't be distributed. Lookups and stats still include them.
+
 ### 3.3 The request card
 
 Ephemeral. Reachable from `/request` (DM or server) and the panel's **My request** button.

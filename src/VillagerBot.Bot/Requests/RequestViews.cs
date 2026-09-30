@@ -67,17 +67,21 @@ public sealed class RequestViews(IOptions<VillagerBotOptions> options, VillagerC
             return new View(notice, new EmbedProperties { Title = "Your villager request", Description = string.Join('\n', lines), Color = CardColor });
         }
 
+        var requestable = catalog.FindByKey(request.VillagerKey)?.Requestable ?? false;
         lines.Add(request.IsAvailable
             ? $"Status: {AvailableEmoji} **Available**: you have an open plot and can be picked."
             : $"Status: {UnavailableEmoji} **Not available**: you won't be picked until you mark yourself available.");
         lines.Add($"Queue: **{Markup.Ordinal(snapshot.AvailablePosition)}** among available requests · **{Markup.Ordinal(snapshot.OverallPosition)}** overall");
         lines.Add("");
-        lines.Add("Only mark yourself available when you have an **open plot** and can check Discord. You'll be pinged when your villager is ready.");
+        lines.Add(requestable
+            ? "Only mark yourself available when you have an **open plot** and can check Discord. You'll be pinged when your villager is ready."
+            : $"⚠️ **{VillagerName(request.VillagerKey)}** can't be requested right now. {_options.NotRequestableReason} " +
+              "You can **change villager** to keep your place in the queue, or leave the queue.");
 
         var buttons = new ActionRowProperties
         {
             new ButtonProperties($"{RequestIds.Availability}:{owner}:true", "I'm available",
-                Markup.EmojiProperties(_options.Emoji.Available, "🟢"), ButtonStyle.Success) { Disabled = request.IsAvailable },
+                Markup.EmojiProperties(_options.Emoji.Available, "🟢"), ButtonStyle.Success) { Disabled = request.IsAvailable || !requestable },
             new ButtonProperties($"{RequestIds.Availability}:{owner}:false", "Not available",
                 Markup.EmojiProperties(_options.Emoji.Unavailable, "🔴"), ButtonStyle.Secondary) { Disabled = !request.IsAvailable },
             new ButtonProperties($"{RequestIds.OpenModal}:{owner}", "Change villager", ButtonStyle.Primary),
@@ -95,6 +99,16 @@ public sealed class RequestViews(IOptions<VillagerBotOptions> options, VillagerC
         {
             new ButtonProperties($"{RequestIds.OpenModal}:{owner}", "Request a villager", EmojiProperties.Standard("🏝️"), ButtonStyle.Primary),
             new LinkButtonProperties(_options.Panel.VillagerListUrl, "Villager list", EmojiProperties.Standard("📖")),
+        }]);
+
+    /// <summary>Shown when someone picks a villager that can't currently be requested (e.g. Sanrio).</summary>
+    public View NotRequestable(ulong owner, Villager villager) => new(
+        $"Sorry, **{villager.Name}** can't be requested right now. {_options.NotRequestableReason} Please choose a different villager.",
+        Components: [new ActionRowProperties
+        {
+            new ButtonProperties($"{RequestIds.OpenModal}:{owner}", "Choose another villager", ButtonStyle.Primary),
+            new LinkButtonProperties(_options.Panel.VillagerListUrl, "Villager list", EmojiProperties.Standard("📖")),
+            new ButtonProperties($"{RequestIds.Dismiss}:{owner}", "Cancel", ButtonStyle.Secondary),
         }]);
 
     public View ConfirmCreate(ulong owner, Villager villager) => Confirm(owner, villager, $"Request **{villager.Name}**?");

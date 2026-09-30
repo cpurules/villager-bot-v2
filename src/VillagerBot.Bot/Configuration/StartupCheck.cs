@@ -56,6 +56,19 @@ public sealed class StartupCheck(RestClient rest, IOptions<VillagerBotOptions> o
         if (problems == 0)
             logger.LogInformation("Startup check: all configured channels and categories are visible to the bot.");
 
+        // Villagers that can't be requested (e.g. Sanrio) can't be marked available.
+        try
+        {
+            await using var scope = scopes.CreateAsyncScope();
+            var changed = await scope.ServiceProvider.GetRequiredService<Requests.RequestService>().EnforceNotRequestableAsync();
+            if (changed > 0)
+                logger.LogInformation("Startup check: marked {Count} requests for non-requestable villagers as not available.", changed);
+        }
+        catch (Exception e)
+        {
+            logger.LogWarning(e, "Startup check: enforcing non-requestable villagers failed.");
+        }
+
         // Remove overflow categories left empty (e.g. if the bot stopped mid-close).
         try
         {

@@ -12,6 +12,9 @@ internal sealed class ImportReport
     public int ArchivedAsStale { get; set; }
     public int ArchivedAsStalePull { get; set; }
     public int RevFallbacks { get; set; }
+
+    /// <summary>Kept requests marked available in the legacy data but imported as not available (villager not requestable).</summary>
+    public int MadeUnavailable { get; set; }
     public Dictionary<ArchiveOutcome, int> ArchiveByOutcome { get; } = [];
 
     /// <summary>Rows that could not be imported. <c>--apply</c> refuses to run while any exist unless forced.</summary>
@@ -29,6 +32,7 @@ internal sealed record ImportPlan(
 /// <item>Requests the legacy bot marked <c>ACCEPTED</c> are stale pulls and are archived as <see cref="ArchiveOutcome.Removed"/>.</item>
 /// <item>Requests whose last write (decoded from <c>_rev</c>) is before <c>staleBefore</c> are archived as Removed.</item>
 /// <item>Kept requests are renumbered 1…N by submission time, ties broken by legacy <c>pos</c>.</item>
+/// <item>Kept requests for villagers that can't currently be requested (e.g. Sanrio) are imported as not available.</item>
 /// </list>
 /// </summary>
 internal static class ImportPlanner
@@ -112,8 +116,10 @@ internal static class ImportPlanner
                 UserId = userId,
                 VillagerKey = villager.Key,
                 SubmittedAt = submittedAt,
-                IsAvailable = legacy.Available ?? false,
+                IsAvailable = (legacy.Available ?? false) && villager.Requestable,
             }, legacy.Pos ?? long.MaxValue));
+            if (legacy.Available == true && !villager.Requestable)
+                report.MadeUnavailable++;
         }
 
         var active = kept

@@ -3528,7 +3528,8 @@
   "species": "Gorilla",
   "personality": "Peppy",
   "catchphrase": "hello",
-  "internalId": "gor11"
+  "internalId": "gor11",
+  "requestable": false
  },
  {
   "key": "MARTY",
@@ -3537,7 +3538,8 @@
   "species": "Cub",
   "personality": "Lazy",
   "catchphrase": "pompom",
-  "internalId": "cbr18"
+  "internalId": "cbr18",
+  "requestable": false
  },
  {
   "key": "ETOILE",
@@ -3546,7 +3548,8 @@
   "species": "Sheep",
   "personality": "Normal",
   "catchphrase": "fuzzy",
-  "internalId": "shp14"
+  "internalId": "shp14",
+  "requestable": false
  },
  {
   "key": "CHAI",
@@ -3555,7 +3558,8 @@
   "species": "Elephant",
   "personality": "Peppy",
   "catchphrase": "flap flap",
-  "internalId": "elp11"
+  "internalId": "elp11",
+  "requestable": false
  },
  {
   "key": "CHELSEA",
@@ -3564,7 +3568,8 @@
   "species": "Deer",
   "personality": "Normal",
   "catchphrase": "pound cake",
-  "internalId": "der10"
+  "internalId": "der10",
+  "requestable": false
  },
  {
   "key": "TOBY",
@@ -3573,7 +3578,8 @@
   "species": "Rabbit",
   "personality": "Smug",
   "catchphrase": "ribbit",
-  "internalId": "rbt20"
+  "internalId": "rbt20",
+  "requestable": false
  },
  {
   "key": "SASHA",
