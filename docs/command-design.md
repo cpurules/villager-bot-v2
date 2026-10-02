@@ -122,7 +122,8 @@ channel and confirms. No duplicate protection (B10: not needed).
 ## 4. Staff experience
 
 All server-only. **Queue browsing and pull announcements are public**, so the team works from a shared view
-rather than in silos. Lookups, stats, and the pulling hunter's own detail reply are ephemeral unless noted.
+rather than in silos. `/stats` results are also public, in whatever channel they're run (decided 2026-10-02). Lookups and
+the pulling hunter's own detail reply are ephemeral unless noted.
 
 ### 4.1 Browsing the queue: `/queue list` (Hunter, Hiatus)
 
@@ -174,6 +175,9 @@ The flow for each request is in §5. The hunter's ephemeral reply lists the chan
 User-or-ID options: both are optional, and exactly one must be supplied. The handler validates this.
 
 ### 4.5 Stats: `/stats` (Hunter, Hiatus; `hunters` is Admin-only)
+
+Results post **publicly** in the channel where the command is used; input errors (an unknown group, a missing month)
+reply privately. Member mentions in the lists render as names but never ping.
 
 | Subcommand | Options | Output |
 |---|---|---|

@@ -27,7 +27,7 @@ public enum StatsPeriod
     AllTime,
 }
 
-/// <summary><c>/stats</c> (command-design §4.5). Private replies.</summary>
+/// <summary><c>/stats</c> (command-design §4.5). Results post publicly in the channel; input errors stay private.</summary>
 [SlashCommand("stats", "Villager request statistics", DefaultGuildPermissions = (Permissions)0, Contexts = [InteractionContextType.Guild])]
 [RequireAccess<ApplicationCommandContext>(AccessLevel.StaffReadOnly)]
 public sealed class StatsModule(
@@ -61,7 +61,7 @@ public sealed class StatsModule(
                    $"({waiting} waiting in total, {pulled} in progress).";
         }
 
-        await RespondAsync(new View(text).ToEphemeralReply());
+        await RespondAsync(new View(text).ToPublicReply());
     }
 
     [SubSlashCommand("helped", "How many requests have been completed")]
@@ -86,7 +86,7 @@ public sealed class StatsModule(
         }
 
         var count = await query.CountAsync();
-        await RespondAsync(new View($"🎉 **{count:N0}** villager request{Plural(count)} have been completed{label}!").ToEphemeralReply());
+        await RespondAsync(new View($"🎉 **{count:N0}** villager request{Plural(count)} have been completed{label}!").ToPublicReply());
     }
 
     [SubSlashCommand("top-villagers", "The most requested villagers in the queue")]
@@ -104,13 +104,13 @@ public sealed class StatsModule(
             .ToListAsync();
 
         var lines = top.Select((x, i) => $"**{i + 1}.** {catalog.FindByKey(x.Key)?.Name ?? x.Key} · {x.Count}");
-        await RespondAsync(Embed(availableOnly ? "Top villagers (available requests)" : "Top villagers (open requests)", lines).ToEphemeralReply());
+        await RespondAsync(Embed(availableOnly ? "Top villagers (available requests)" : "Top villagers (open requests)", lines).ToPublicReply());
     }
 
     [SubSlashCommand("top-requesters", "Members with the most closed requests")]
     public async Task TopRequestersAsync()
     {
-        await RespondAsync(InteractionCallback.DeferredMessage(MessageFlags.Ephemeral));
+        await RespondAsync(InteractionCallback.DeferredMessage());
 
         // Current members only (as before); check candidates in order until there are ten.
         var candidates = await db.ArchivedRequests.AsNoTracking()
@@ -172,7 +172,7 @@ public sealed class StatsModule(
 
         var total = rows.Sum(r => r.Count);
         var lines = rows.Select((r, i) => $"**{i + 1}.** <@{r.HunterId}> · {r.Count}").Prepend($"**{total:N0}** completed in total.\n");
-        await RespondAsync(Embed($"Haven Hunters: {range.Label}", lines).ToEphemeralReply());
+        await RespondAsync(Embed($"Haven Hunters: {range.Label}", lines).ToPublicReply());
     }
 
     private static (DateTimeOffset?, DateTimeOffset?, string) MonthRange(TimeZoneInfo zone, int year, int month)

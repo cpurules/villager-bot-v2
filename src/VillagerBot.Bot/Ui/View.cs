@@ -20,6 +20,15 @@ public sealed record View(string? Content, EmbedProperties? Embed = null, IReadO
 
     public InteractionCallbackProperties ToEphemeralReply() => InteractionCallback.Message(ToEphemeralMessage());
 
+    /// <summary>A reply everyone in the channel can see. Mentions render as names but never ping.</summary>
+    public InteractionCallbackProperties ToPublicReply() => InteractionCallback.Message(new InteractionMessageProperties
+    {
+        Content = Content,
+        Embeds = Embed is null ? null : [Embed],
+        Components = Components,
+        AllowedMentions = AllowedMentionsProperties.None,
+    });
+
     /// <summary>Replaces the whole message (empty values clear what was there before).</summary>
     public void ApplyTo(MessageOptions message)
     {
