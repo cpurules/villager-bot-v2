@@ -106,8 +106,11 @@ public sealed class VillagerBotOptions
     {
         public int MaxCount { get; set; } = 10;
 
-        /// <summary>Villager group left out of bulk pulls unless one of its villagers is chosen explicitly (decided).</summary>
-        public string BulkExcludedGroup { get; set; } = "Sanrio";
+        /// <summary>
+        /// Villager groups left out of <c>/pull next</c>; their villagers can still be pulled by choosing them explicitly
+        /// (<c>/pull villager</c>, <c>/pull user</c>). Set in appsettings.json.
+        /// </summary>
+        public List<string> BulkExcludedGroups { get; set; } = [];
     }
 
     /// <summary>

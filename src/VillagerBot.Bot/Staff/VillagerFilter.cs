@@ -32,7 +32,9 @@ public sealed class VillagerGroups(IOptions<VillagerBotOptions> options, Village
                .ToHashSet(StringComparer.OrdinalIgnoreCase)
            ?? new HashSet<string>();
 
-    public IReadOnlySet<string> BulkExcluded => Group(options.Value.Pull.BulkExcludedGroup);
+    /// <summary>Every villager in any of the <c>Pull:BulkExcludedGroups</c>.</summary>
+    public IReadOnlySet<string> BulkExcluded
+        => options.Value.Pull.BulkExcludedGroups.SelectMany(Group).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>Parses an autocomplete value (<c>group:Sanrio</c> or a villager key) or typed text.</summary>
     public VillagerFilter? Resolve(string value, bool exclude)

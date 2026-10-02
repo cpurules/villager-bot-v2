@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using VillagerBot.Bot.Configuration;
 using VillagerBot.Bot.Staff;
 using VillagerBot.Core.Villagers;
@@ -10,7 +11,12 @@ public class StaffTests
 
     private static VillagerGroups Groups() => new(Microsoft.Extensions.Options.Options.Create(new VillagerBotOptions
     {
-        VillagerGroups = new() { ["Sanrio"] = ["TOBY", "MARTY", "ETOILE", "CHELSEA", "CHAI", "RILLA"] },
+        VillagerGroups = new()
+        {
+            ["Sanrio"] = ["TOBY", "MARTY", "ETOILE", "CHELSEA", "CHAI", "RILLA"],
+            ["3.0.0"] = ["MINERU", "TULIN", "VICHE", "CECE"],
+        },
+        Pull = new() { BulkExcludedGroups = ["Sanrio", "3.0.0"] },
     }), Catalog);
 
     [Theory]
@@ -54,7 +60,35 @@ public class StaffTests
     }
 
     [Fact]
-    public void BulkExclusionDefaultsToSanrio() => Assert.Contains("MARTY", Groups().BulkExcluded);
+    public void BulkExclusionCoversEveryListedGroup()
+    {
+        var excluded = Groups().BulkExcluded;
+        Assert.Contains("MARTY", excluded);
+        Assert.Contains("MINERU", excluded);
+        Assert.DoesNotContain("RAYMOND", excluded);
+        Assert.Equal(10, excluded.Count);
+    }
+
+    [Fact]
+    public void RealAppSettingsBindGroupsAndBulkExclusions()
+    {
+        var config = new ConfigurationBuilder()
+            .AddJsonFile(Path.Combine(AppContext.BaseDirectory, "appsettings.json"))
+            .Build();
+        var options = new VillagerBotOptions();
+        config.GetSection(VillagerBotOptions.Section).Bind(options);
+
+        Assert.Equal(["MINERU", "TULIN", "VICHE", "CECE"], options.VillagerGroups["3.0.0"]);
+        Assert.Equal(["Sanrio", "3.0.0"], options.Pull.BulkExcludedGroups);
+    }
+
+    [Fact]
+    public void ResolvesTheThreeOhGroup()
+    {
+        var filter = Groups().Resolve("group:3.0.0", exclude: false);
+        Assert.NotNull(filter);
+        Assert.Equal(("3.0.0", 4), (filter.Label, filter.Keys.Count));
+    }
 
     [Fact]
     public void PullSummaryListsInternalIdsAndDmFailures()

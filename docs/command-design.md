@@ -145,10 +145,11 @@ treat the villager or group as an *exclusion* filter).
 |---|---|---|
 | `/pull user` | `user` (picker) **or** `user-id` (text) | That user's unpulled request. Availability is **not** required, matching today's behavior. |
 | `/pull villager` | `villager` (autocomplete), `count` 1–10 (default 1) | The next *available* requests for that villager, Sanrio included when that's the villager chosen |
-| `/pull next` | `count` 1–10 (default 1) | The next *available* requests of any villager, **excluding Sanrio** |
+| `/pull next` | `count` 1–10 (default 1) | The next *available* requests of any villager, **excluding the bulk-excluded groups** (Sanrio, 3.0.0) |
 
-**Rule (decided):** bulk pulls never include Sanrio villagers unless a Sanrio villager was explicitly chosen (e.g.
-`/pull villager Marty 5`). The Sanrio list comes from the `VillagerGroups:Sanrio` config.
+**Rule (decided):** bulk pulls never include villagers from the groups in `Pull:BulkExcludedGroups` (currently
+**Sanrio** and **3.0.0**, the 3.0 update's Mineru, Tulin, Viché and Cece; added 2026-10-02) unless one is chosen explicitly,
+e.g. `/pull villager Marty 5` or `/pull villager Mineru`. Group membership comes from `VillagerGroups` in config.
 
 `/pull` only works in the requests channel, like `/queue list` (decided 2026-09-29); its replies are still private.
 The flow for each request is in §5. The hunter's ephemeral reply lists the channels created, plus villager names and
@@ -305,10 +306,10 @@ Lookups are paced gently, since the active queue is small and REST rate limits a
                   "StarterKits": 795365351348764702, "StaffLog": 719902403058466818, "TimeoutLog": 725528965347016725 },
     "Categories": { "Main": 720676376335745034, "OverflowNameFormat": "Villager Requests {0}", "MaxChannels": 50 },
     "Emoji": { "Available": 725149894116900864, "Unavailable": 725149894154649670 /* … */ },
-    "VillagerGroups": { "Sanrio": ["TOBY", "MARTY", "ETOILE", "CHELSEA", "CHAI", "RILLA"] },
+    "VillagerGroups": { "Sanrio": ["TOBY", "MARTY", "ETOILE", "CHELSEA", "CHAI", "RILLA"], "3.0.0": ["MINERU", "TULIN", "VICHE", "CECE"] },
     "StatsTimeZone": "America/Chicago",
     "Jobs": { "DepartedCleanupHours": 6 },
-    "Pull": { "MaxCount": 10 }
+    "Pull": { "MaxCount": 10, "BulkExcludedGroups": ["Sanrio", "3.0.0"] }
   }
 }
 ```
@@ -341,7 +342,7 @@ creation logic.
   `/stats hunters` lists every hunter with completed requests in the period (departed hunters included), counting in the
   `StatsTimeZone`.
 - **Configurable texts:** `VillagerBot:RequestChannel:Welcome`, `PulledDm`, and `TimeoutDm`, with `{member}`, `{hunter}`,
-  `{villager}`, `{channel}` placeholders. `VillagerBot:Pull:BulkExcludedGroup` (default `Sanrio`).
+  `{villager}`, `{channel}` placeholders. `VillagerBot:Pull:BulkExcludedGroups` (`Sanrio`, `3.0.0`).
 
 ## 10. Open questions
 

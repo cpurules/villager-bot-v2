@@ -92,7 +92,7 @@ public sealed class PullModule(PullService pulls, PullReporter reporter, Village
         await FinishAsync(results, $"There are no available requests for **{target.Name}**.");
     }
 
-    [SubSlashCommand("next", "Pull the next available requests of any villager (Sanrio villagers excluded)")]
+    [SubSlashCommand("next", "Pull the next available requests (skips Sanrio and 3.0.0 villagers)")]
     public async Task NextAsync(
         [SlashCommandParameter(Description = "How many to pull", MinValue = 1, MaxValue = 10)] int count = 1)
     {
