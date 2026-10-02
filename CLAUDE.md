@@ -20,7 +20,7 @@ not author) as a C# .NET 10 app on NetCord. The rewrite was triggered by the los
 
 | Path | What |
 |---|---|
-| `src/VillagerBot.Core` | Domain code with no Discord or DB dependencies: the villager catalogue (`Villagers/villagers.json`, embedded; generated from the legacy enum) |
+| `src/VillagerBot.Core` | Domain code with no Discord or DB dependencies: the villager catalogue (`Villagers/villagers.json`, embedded; generated from the legacy enum, plus villagers added since by hand, e.g. the 3.0 update) |
 | `src/VillagerBot.Data` | EF Core entities, `VillagerBotDbContext` (Postgres, snake_case, `ulong`→`bigint`), migrations |
 | `src/VillagerBot.Bot` | NetCord Generic Host app, organized by feature: `Access/` (role tiers, `RequireAccess` precondition), `Requests/` (member flow: service, views, modules), `Relays/` (mod mail, starter kits), `Staff/` (queue list, pulls, request channels and overflow categories, closing), `Panel/` (info-channel panel, `/admin`), `Ui/` (shared view and markup helpers), `Configuration/` |
 | `src/VillagerBot.Migration` | One-off legacy ArangoDB import tool (dry run by default) |

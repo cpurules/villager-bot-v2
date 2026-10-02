@@ -259,7 +259,7 @@ Afterwards, delete the copies on the VM: `rm -r ~/vh-export ~/vh-export.tgz`.
 | `acceptedTimeStamp` | `PulledAt` | |
 | `helperUserId` | `HunterId` | |
 | `channelId` | `ChannelId` | |
-| `available` | `IsAvailable` | null → false; **false for villagers that can't be requested** (Sanrio, decided 2026-09-29) |
+| `available` | `IsAvailable` | null → false |
 | `pos` | — | **Ignored.** Kept requests are renumbered 1…N ordered by `timeStamp` (ties broken by legacy `pos`) (decided) |
 | `_rev` | (staleness filter only) | Decoded to a last-write time (§4.1). Not stored. |
 | — | `queue_position` sequence | `setval(N)`, so the next ticket is N + 1 |

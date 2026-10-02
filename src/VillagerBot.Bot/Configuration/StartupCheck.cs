@@ -56,7 +56,7 @@ public sealed class StartupCheck(RestClient rest, IOptions<VillagerBotOptions> o
         if (problems == 0)
             logger.LogInformation("Startup check: all configured channels and categories are visible to the bot.");
 
-        // Villagers that can't be requested (e.g. Sanrio) can't be marked available.
+        // Villagers that can't be requested can't be marked available.
         try
         {
             await using var scope = scopes.CreateAsyncScope();

@@ -19,7 +19,7 @@ public enum RequestChange
     /// <summary>A Haven Hunter has already pulled the request, so the member can no longer change it (B9).</summary>
     Pulled,
 
-    /// <summary>The villager can't currently be requested (e.g. Sanrio), so the request can't be marked available.</summary>
+    /// <summary>The villager can't currently be requested, so the request can't be marked available.</summary>
     NotRequestable,
 }
 

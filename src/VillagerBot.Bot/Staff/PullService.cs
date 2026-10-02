@@ -19,7 +19,7 @@ public enum PullStatus
     /// <summary>The member left the server; their request was archived as Removed.</summary>
     MemberLeft,
 
-    /// <summary>The request is for a villager that can't currently be distributed (e.g. Sanrio).</summary>
+    /// <summary>The request is for a villager that can't currently be distributed.</summary>
     NotRequestable,
     Failed,
 }

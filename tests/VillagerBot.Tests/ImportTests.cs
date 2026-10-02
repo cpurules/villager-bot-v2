@@ -73,18 +73,6 @@ public class ImportTests
     }
 
     [Fact]
-    public void ImportsNonRequestableVillagersAsNotAvailable()
-    {
-        var plan = Plan(
-            Request("1", "MARTY", submitted: Now.AddDays(-1), lastWrite: Now, available: true),
-            Request("2", "RAYMOND", submitted: Now.AddDays(-1), lastWrite: Now, available: true));
-
-        Assert.False(plan.Active.Single(r => r.UserId == 1).IsAvailable);
-        Assert.True(plan.Active.Single(r => r.UserId == 2).IsAvailable);
-        Assert.Equal(1, plan.Report.MadeUnavailable);
-    }
-
-    [Fact]
     public void ReportsUnknownVillagersWithoutImportingThem()
     {
         var plan = Plan(Request("1", "NOT_A_VILLAGER", submitted: Now, lastWrite: Now));

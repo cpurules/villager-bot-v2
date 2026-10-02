@@ -101,7 +101,7 @@ public sealed class RequestViews(IOptions<VillagerBotOptions> options, VillagerC
             new LinkButtonProperties(_options.Panel.VillagerListUrl, "Villager list", EmojiProperties.Standard("📖")),
         }]);
 
-    /// <summary>Shown when someone picks a villager that can't currently be requested (e.g. Sanrio).</summary>
+    /// <summary>Shown when someone picks a villager that can't currently be requested.</summary>
     public View NotRequestable(ulong owner, Villager villager) => new(
         $"Sorry, **{villager.Name}** can't be requested right now. {_options.NotRequestableReason} Please choose a different villager.",
         Components: [new ActionRowProperties

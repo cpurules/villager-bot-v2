@@ -24,7 +24,7 @@ public sealed class VillagerBotOptions
 
     /// <summary>Shown to members when a villager can't currently be requested (catalogue <c>requestable: false</c>).</summary>
     public string NotRequestableReason { get; set; } =
-        "Sanrio villagers are amiibo-only and can't currently be distributed.";
+        "They can't currently be distributed.";
 
     /// <summary>The bot's status line, e.g. "Playing Villager Pairing". An empty <c>Text</c> shows no activity.</summary>
     public ActivityOptions Activity { get; set; } = new();

@@ -3528,8 +3528,7 @@
   "species": "Gorilla",
   "personality": "Peppy",
   "catchphrase": "hello",
-  "internalId": "gor11",
-  "requestable": false
+  "internalId": "gor11"
  },
  {
   "key": "MARTY",
@@ -3538,8 +3537,7 @@
   "species": "Cub",
   "personality": "Lazy",
   "catchphrase": "pompom",
-  "internalId": "cbr18",
-  "requestable": false
+  "internalId": "cbr18"
  },
  {
   "key": "ETOILE",
@@ -3548,8 +3546,7 @@
   "species": "Sheep",
   "personality": "Normal",
   "catchphrase": "fuzzy",
-  "internalId": "shp14",
-  "requestable": false
+  "internalId": "shp14"
  },
  {
   "key": "CHAI",
@@ -3558,8 +3555,7 @@
   "species": "Elephant",
   "personality": "Peppy",
   "catchphrase": "flap flap",
-  "internalId": "elp11",
-  "requestable": false
+  "internalId": "elp11"
  },
  {
   "key": "CHELSEA",
@@ -3568,8 +3564,7 @@
   "species": "Deer",
   "personality": "Normal",
   "catchphrase": "pound cake",
-  "internalId": "der10",
-  "requestable": false
+  "internalId": "der10"
  },
  {
   "key": "TOBY",
@@ -3578,8 +3573,7 @@
   "species": "Rabbit",
   "personality": "Smug",
   "catchphrase": "ribbit",
-  "internalId": "rbt20",
-  "requestable": false
+  "internalId": "rbt20"
  },
  {
   "key": "SASHA",
@@ -3724,5 +3718,41 @@
   "personality": "Sisterly",
   "catchphrase": "aloha",
   "internalId": "kal07"
+ },
+ {
+  "key": "MINERU",
+  "name": "Mineru",
+  "gender": "Female",
+  "species": "Deer",
+  "personality": "Snooty",
+  "catchphrase": "construct",
+  "internalId": "der12"
+ },
+ {
+  "key": "TULIN",
+  "name": "Tulin",
+  "gender": "Male",
+  "species": "Bird",
+  "personality": "Jock",
+  "catchphrase": "gust",
+  "internalId": "brd20"
+ },
+ {
+  "key": "VICHE",
+  "name": "Viché",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Normal",
+  "catchphrase": "lip-synch",
+  "internalId": "squ20"
+ },
+ {
+  "key": "CECE",
+  "name": "Cece",
+  "gender": "Female",
+  "species": "Squirrel",
+  "personality": "Peppy",
+  "catchphrase": "drip ink",
+  "internalId": "squ19"
  }
 ]
