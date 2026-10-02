@@ -76,6 +76,7 @@ public sealed class LookupService(VillagerBotDbContext db, RequestService reques
     {
         ArchiveOutcome.Completed => "Completed",
         ArchiveOutcome.Timeout => "Timed out",
+        ArchiveOutcome.Expired => "Expired (inactive)",
         _ => "Removed",
     };
 }

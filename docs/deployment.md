@@ -248,7 +248,7 @@ Follow [command-design.md §6.3](command-design.md#63-bot-setup-brand-new-applic
 
 ### 7.2 Freeze and export the old data
 
-1. Make sure **no request channels are open** (decided; any stragglers are archived as Removed by the import).
+1. Make sure **no request channels are open** (decided; any stragglers are archived as Expired by the import).
 2. **Stop the old bot** on the GCP VM, so the data can't change during the export.
 3. Export exactly as before ([data-migration.md §3](data-migration.md#3-legacy-data-export-run-on-the-current-gcp-vm)).
    `lastpos.json` isn't needed.

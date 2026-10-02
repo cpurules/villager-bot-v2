@@ -255,7 +255,7 @@ Afterwards, delete the copies on the VM: `rm -r ~/vh-export ~/vh-export.tgz`.
 | `_key` | `UserId` | parse to ulong |
 | `villager` | `VillagerKey` | must exist in the catalogue; otherwise reported |
 | `timeStamp` | `SubmittedAt` | ISO string or epoch (the importer accepts both); missing → reported |
-| `status` | `PulledAt` null/not-null | `ACCEPTED` → **archived as `REMOVED`** instead (stale pulls; decided). `REMOVED` → reported (not expected) |
+| `status` | `PulledAt` null/not-null | `ACCEPTED` → **archived as `Expired`** instead (stale pulls; decided). `REMOVED` → reported (not expected) |
 | `acceptedTimeStamp` | `PulledAt` | |
 | `helperUserId` | `HunterId` | |
 | `channelId` | `ChannelId` | |
@@ -290,7 +290,7 @@ Caveats:
   runs. These only make a request look *newer*, so a cutoff never wipes something a member actually touched recently.
 - A "touch" is any write: submit, `!change`, `!status`, or an admin bulk update.
 
-Requests whose last write is older than the cutoff are archived as **`REMOVED`** (with `ClosedAt` = import time) rather than
+Requests whose last write is older than the cutoff are archived as **`Expired`** (with `ClosedAt` = import time) rather than
 kept active. Their members can simply request again. The cutoff is the tool option `--stale-days`, **365 by default (decided 2026-09-28)**.
 
 Counts from the 2026-09-28 export (excluding the 3 stale pulls):
@@ -338,12 +338,14 @@ docker compose -f deploy/compose.yaml run --rm villager-bot-migration --apply   
 
 Dry run on the 2026-09-28 export (`--as-of 2026-09-29`): 502 requests kept (117 available), 4,612 archived as stale,
 3 stale pulls archived, and an archive of 12,763 Completed / 5,952 Timeout / 4,895 Removed. No problems.
+With the `Expired` outcome (2026-10-02), the same run gives 12,763 Completed / 5,952 Timeout / **280 Removed** (the
+legacy "member left" archives) / **4,615 Expired** (4,612 stale requests plus the 3 stuck pulls).
 
 ## 6. Cutover plan (outline)
 
 1. **Test first:** a separate test Discord server plus a test bot application, running on a copy of the migrated data.
 2. **No open request channels at switchover** (confirmed by the maintainer). Any request still marked pulled is
-   archived as `REMOVED` by the import.
+   archived as `Expired` by the import.
 3. Stop the old bot, take the final export (same procedure as §3; no `lastpos.json` needed), and run the import with
    `--apply` (default 365-day staleness cutoff).
 4. Start the new bot, which registers its commands. Complete the setup checklist (command-design §6.3), run

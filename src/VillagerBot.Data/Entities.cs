@@ -50,8 +50,11 @@ public enum ArchiveOutcome
     Completed,
     Timeout,
 
-    /// <summary>Removed without being fulfilled: the member left the server, or the request expired as stale.</summary>
+    /// <summary>Removed without being fulfilled because the member left the server.</summary>
     Removed,
+
+    /// <summary>Closed by the legacy import for inactivity: untouched for a year, or a pull stuck since 2021.</summary>
+    Expired,
 }
 
 /// <summary>An overflow request category the bot created, and may therefore delete.</summary>

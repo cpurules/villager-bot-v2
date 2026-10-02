@@ -34,7 +34,7 @@ public class ImportTests
         var kept = Assert.Single(plan.Active);
         Assert.Equal(2UL, kept.UserId);
         var archived = Assert.Single(plan.Archived);
-        Assert.Equal((1UL, ArchiveOutcome.Removed, Now), (archived.UserId, archived.Outcome, archived.ClosedAt));
+        Assert.Equal((1UL, ArchiveOutcome.Expired, Now), (archived.UserId, archived.Outcome, archived.ClosedAt));
         Assert.Equal(1, plan.Report.ArchivedAsStale);
     }
 
@@ -46,7 +46,7 @@ public class ImportTests
 
         Assert.Empty(plan.Active);
         var archived = Assert.Single(plan.Archived);
-        Assert.Equal(ArchiveOutcome.Removed, archived.Outcome);
+        Assert.Equal(ArchiveOutcome.Expired, archived.Outcome);
         Assert.Equal(99UL, archived.HunterId);
         Assert.Equal(Now.AddDays(-2), archived.PulledAt);
     }

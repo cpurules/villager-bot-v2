@@ -26,8 +26,8 @@ internal sealed record ImportPlan(
 /// <summary>
 /// Turns the legacy export into rows for the new schema. Rules (docs/data-migration.md §4):
 /// <list type="bullet">
-/// <item>Requests the legacy bot marked <c>ACCEPTED</c> are stale pulls and are archived as <see cref="ArchiveOutcome.Removed"/>.</item>
-/// <item>Requests whose last write (decoded from <c>_rev</c>) is before <c>staleBefore</c> are archived as Removed.</item>
+/// <item>Requests the legacy bot marked <c>ACCEPTED</c> are stale pulls and are archived as <see cref="ArchiveOutcome.Expired"/>.</item>
+/// <item>Requests whose last write (decoded from <c>_rev</c>) is before <c>staleBefore</c> are archived as <see cref="ArchiveOutcome.Expired"/>.</item>
 /// <item>Kept requests are renumbered 1…N by submission time, ties broken by legacy <c>pos</c>.</item>
 /// </list>
 /// </summary>
@@ -75,7 +75,7 @@ internal static class ImportPlanner
                     PulledAt = LegacyExport.TryParseTimestamp(legacy.AcceptedTimeStamp, out var pulledAt) ? pulledAt : null,
                     ClosedAt = now,
                     HunterId = ParseId(legacy.HelperUserId),
-                    Outcome = ArchiveOutcome.Removed,
+                    Outcome = ArchiveOutcome.Expired,
                 });
                 report.ArchivedAsStalePull++;
                 continue;
@@ -101,7 +101,7 @@ internal static class ImportPlanner
                     VillagerKey = villager.Key,
                     SubmittedAt = submittedAt,
                     ClosedAt = now,
-                    Outcome = ArchiveOutcome.Removed,
+                    Outcome = ArchiveOutcome.Expired,
                 });
                 report.ArchivedAsStale++;
                 continue;

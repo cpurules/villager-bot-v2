@@ -282,7 +282,7 @@ channel, and log exactly what's missing.
 
 | Job | Interval (config) | Does |
 |---|---|---|
-| Departed-member cleanup (B8) | 6 h | For each active request: `GetGuildUserAsync`; on 404, archive as `REMOVED`. If the request was pulled, post "member left" in the staff log and delete its channel (the old `!close` fallback, now proactive). No privileged intent needed. |
+| Departed-member cleanup (B8) | 6 h | For each active request: `GetGuildUserAsync`; on 404, archive as `Removed`. If the request was pulled, post "member left" in the staff log and delete its channel (the old `!close` fallback, now proactive). No privileged intent needed. |
 | Overflow-category cleanup | on startup (and via `/admin sync-categories`) | Delete empty bot-owned overflow categories |
 | Startup self-check | on startup | Verify access to the main category and configured channels (§6.3) |
 
